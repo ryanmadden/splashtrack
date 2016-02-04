@@ -1,33 +1,45 @@
 Template.record.onCreated(function() {
-
+  if (!Session.get('gameId')) {
+    var currGame = Games.findOne({active: true, roster: Meteor.userId()});
+    console.log('hi');
+    console.log(currGame);
+    if (currGame) {
+      Session.set('gameId', currGame._id);
+    }
+    else {
+      Router.go('/');
+    }
+  }
 });
 
 Template.record.events({
+  'click .btn-glass': function() {
+    var currGame = Games.findOne({_id: Session.get('gameId')});
+    Meteor.call('recordHit', Session.get('gameId'), currGame.activePlayer, 'glass');
+  },
   'click .btn-hit': function() {
-    Meteor.call('recordHit', Session.get('gameId'), Session.get('activeGame').activePlayer);
-    console.log('click');
+    var currGame = Games.findOne({_id: Session.get('gameId')});
+    Meteor.call('recordHit', Session.get('gameId'), currGame.activePlayer, 'hits');
+  },
+  'click .btn-miss': function() {
+    var currGame = Games.findOne({_id: Session.get('gameId')});
+    Meteor.call('recordHit', Session.get('gameId'), currGame.activePlayer, 'misses');
   }
 })
 
 Template.record.helpers({
-  activeGame: function() {
-     var currGame = Games.findOne({_id: Session.get('gameId')});
-     Session.set('activeGame', currGame);
-     return currGame;
-  },
-  hitsRaw: function() {
-    var hits = Session.get('activeGame');
-    if (hits) {
-      var h = hits.records[Meteor.userId()].hits;
-      if (!h) {
-        return 0;
-      }
-      else {
-        return h;
-      }
+  activeRecord: function() {
+    var activeGame = Games.findOne({_id: Session.get('gameId')});
+    if (activeGame) {
+      var activeRecord = activeGame.records[Meteor.userId()];
+      return activeRecord;
     }
     else {
-      return "error";
+      return {
+        hits: '',
+        misses: '',
+        glass: ''
+      }
     }
-  }
+  },
 });

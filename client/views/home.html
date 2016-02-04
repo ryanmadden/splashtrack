@@ -2,7 +2,7 @@
   {{#if currentUser }}
   <div class="row">
     <div class="valign-wrapper login-wrapper center">
-      <a class="waves-effect waves-light btn btn-new-game center-margin">New Game</a>
+      <a class="waves-effect waves-light btn btn-new-game center-margin">{{#if hasActiveGame}}Continue Game{{else}}New Game{{/if}}</a>
     </div>
   </div>
   {{else}}

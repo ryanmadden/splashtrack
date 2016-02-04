@@ -24,6 +24,7 @@ Template.options.events({
     var p4 = Session.get('player4');
     var rstr = [p1, p2, p3, p4];
     Games.insert({
+      active: true,
       date: new Date(),
       roster: rstr,
       activePlayer: p1,

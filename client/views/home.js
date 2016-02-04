@@ -9,6 +9,24 @@ Template.home.events({
       });
   },
   'click .btn-new-game': function () {
-    Router.go('/new');
+    if (Session.get('gameId')) {
+      Router.go('/record');
+    }
+    else {
+      Router.go('/new');
+    }
+  }
+});
+
+Template.home.helpers({
+  hasActiveGame: function () {
+    var currGame = Games.findOne({active: true, roster: Meteor.userId()});
+    if (currGame) { 
+      Session.set('gameId', currGame._id);
+      return true; 
+    }
+    else {
+      return false; 
+    }
   }
 });

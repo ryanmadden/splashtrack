@@ -1,14 +1,14 @@
 Meteor.methods({
-  recordHit: function(gameId, playerId) {
-    var hits = Games.findOne({_id: gameId}).records[playerId].hits;
-    if (hits === null) {
+  recordHit: function(gameId, playerId, recordType) {
+    var record = Games.findOne({_id: gameId}).records[playerId][recordType];
+    if (record === null) {
       Games.update(gameId, {
-        $set: {['records.' + playerId + '.hits']: 0}
+        $set: {['records.' + playerId + '.' + recordType]: 1}
       });
     }
     else {
       Games.update(gameId, {
-        $inc: {['records.' + playerId + '.hits']: 1}
+        $inc: {['records.' + playerId + '.' + recordType]: 1}
       });
     }
   },

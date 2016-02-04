@@ -1,8 +1,6 @@
 Template.record.onCreated(function() {
   if (!Session.get('gameId')) {
     var currGame = Games.findOne({active: true, roster: Meteor.userId()});
-    console.log('hi');
-    console.log(currGame);
     if (currGame) {
       Session.set('gameId', currGame._id);
     }
@@ -10,6 +8,10 @@ Template.record.onCreated(function() {
       Router.go('/');
     }
   }
+});
+
+Template.record.onRendered(function() {
+  $('.modal-trigger').leanModal();
 });
 
 Template.record.events({
@@ -35,15 +37,25 @@ Template.record.helpers({
       activeRecord = _.object(_.map(activeRecord, function (num, key) {
         return [key, num || 0];
       }));
-      var total = _.keys(activeRecord);
+      console.log(activeRecord);
+      var total = _.reduce(_.values(activeRecord), function(memo, num){return memo+num; }, 0);
       console.log(total);
+      activeRecord.total = total;
+      activeRecord.hitsRatio = Math.round(activeRecord.hits/total*100);
+      activeRecord.missesRatio = Math.round(activeRecord.misses/total*100);
+      activeRecord.glassRatio = Math.round(activeRecord.glass/total*100);
+      console.log(activeRecord.hitsRatio);
       return activeRecord;
     }
     else {
       return {
         hits: 0,
         misses: 0,
-        glass: 0
+        glass: 0,
+        total: 0,
+        hitsRatio: 0,
+        missesRatio: 0,
+        glassRatio: 0
       }
     }
   },

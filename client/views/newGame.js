@@ -1,3 +1,10 @@
+Template.newGame.onCreated(function() {
+  Session.set('player1', null);
+  Session.set('player2', null);
+  Session.set('player3', null)
+  Session.set('player4', null);
+});
+
 Template.newGame.onRendered(function() {
   $('select').material_select();
 });
@@ -5,13 +12,13 @@ Template.newGame.onRendered(function() {
 Template.newGame.helpers({
   settings: function() {
     return {
-      position: "bottom",
+      position: 'bottom',
       limit: 5,
       rules: [
       {
         token: '',
         collection: Meteor.users,
-        field: "profile.name",
+        field: 'profile.name',
         template: Template.userPill,
         noMatchTemplate: Template.noUserPill
       }
@@ -27,17 +34,23 @@ Template.newGame.helpers({
 
 Template.newGame.events({
   'click .btn-next': function () {
-    //TODO validate plater input
-    //TODO set roster session variable and create game
-
     Router.go('/options');
   },
   'click .btn-back': function () {
     Router.go('/');
   },
-  'click option': function () {
-    console.log('fuck');
-  }
+  'autocompleteselect #p1-wrapper input': function(event, template, doc) {
+    Session.set('player1', doc._id);
+  },
+  'autocompleteselect #p2-wrapper input': function(event, template, doc) {
+    Session.set('player2', doc._id);
+  },
+  'autocompleteselect #p3-wrapper input': function(event, template, doc) {
+    Session.set('player3', doc._id);
+  },
+  'autocompleteselect #p4-wrapper input': function(event, template, doc) {
+    Session.set('player4', doc._id);
+  },
 });
 
 Template.userPill.helpers({

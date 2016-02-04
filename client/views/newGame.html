@@ -1,10 +1,18 @@
 <template name="newGame">
   <h4>Team 1</h4>
-  {{> inputAutocomplete settings=settings id="player1" class="input-xlarge" placeholder="Player 1"}}
-  {{> inputAutocomplete settings=settings id="player2" class="input-xlarge" placeholder="Player 2"}}
+  <div id="p1-wrapper">
+    {{> inputAutocomplete settings=settings id="player1" class="input-xlarge" placeholder="Player 1"}}
+  </div>
+  <div id="p2-wrapper">
+    {{> inputAutocomplete settings=settings id="player2" class="input-xlarge" placeholder="Player 2"}}
+  </div>
   <h4>Team 2</h4>
-  {{> inputAutocomplete settings=settings id="player1" class="input-xlarge" placeholder="Player 1"}}
-  {{> inputAutocomplete settings=settings id="player2" class="input-xlarge" placeholder="Player 2"}}
+  <div id="p3-wrapper">
+    {{> inputAutocomplete settings=settings id="player1" class="input-xlarge" placeholder="Player 1"}}
+  </div>
+  <div id="p4-wrapper">
+    {{> inputAutocomplete settings=settings id="player2" class="input-xlarge" placeholder="Player 2"}}
+  </div>
   <div class="row">
     <div class="col s12 m6">
       <a class="waves-effect waves-light btn btn-next">NEXT</a>

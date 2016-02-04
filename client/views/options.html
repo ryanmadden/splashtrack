@@ -1,23 +1,23 @@
 <template name="options">
   <h4>Logging</h4>
-  <form action="#">
+  <form action="#" class="record-type-form">
     <p>
-      <input class="with-gap" name="group1" type="radio" id="test4" checked/>
+      <input class="with-gap" name="group1" type="radio" id="test4" recordType="all" checked/>
       <label for="test4">Hits, Misses, Glass</label>
     </p>
     <p>
-      <input class="with-gap" name="group1" type="radio" id="test3" disabled="disabled"/>
+      <input class="with-gap" name="group1" type="radio" id="test3" recordType="hits" disabled="disabled"/>
       <label for="test3">Hits Only</label>
     </p>
   </form>
   <div class="divider"></div>
-  <form action="#">
+  <form action="#" class="record-players-form">
     <p>
-      <input class="with-gap" name="group1" type="radio" id="test3" checked/>
+      <input class="with-gap" name="group1" type="radio" id="test3" recordPlayers="solo" checked/>
       <label for="test3">Only Me</label>
     </p>
     <p>
-      <input class="with-gap" name="group1" type="radio" id="test4" disabled="disabled" />
+      <input class="with-gap" name="group1" type="radio" id="test4" recordPlayers="all" disabled="disabled" />
       <label for="test4">All Players</label>
     </p>
   </form>

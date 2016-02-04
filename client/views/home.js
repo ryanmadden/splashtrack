@@ -6,7 +6,9 @@ Template.home.events({
           return console.log(error);
         }
         console.log("login success");
-        Router.go('/hello');
       });
+  },
+  'click .btn-new-game': function () {
+    Router.go('/new');
   }
 });

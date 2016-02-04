@@ -2,6 +2,19 @@
   height: 85vh;
 }
 
-.btn-login {
+.center-margin {
   margin: 0 auto;
+}
+
+.btn-record {
+  width: 130px;
+  height: 130px;
+}
+
+.record-label {
+  margin-top: 47px;
+}
+
+.row-padded {
+  margin-top: 10px;
 }

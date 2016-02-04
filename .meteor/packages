@@ -22,3 +22,4 @@ materialize:materialize
 iron:router
 accounts-facebook
 accounts-ui
+mizzao:autocomplete

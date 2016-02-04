@@ -1,10 +1,14 @@
 <template name="home">
   {{#if currentUser }}
-  <h3>Welcome, Brother</h3>
+  <div class="row">
+    <div class="valign-wrapper login-wrapper center">
+      <a class="waves-effect waves-light btn btn-new-game center-margin">New Game</a>
+    </div>
+  </div>
   {{else}}
   <div class="row">
     <div class="valign-wrapper login-wrapper center">
-      <a class="waves-effect waves-light btn btn-login">Sign In with Facebook</a>
+      <a class="waves-effect waves-light btn btn-login center-margin">Sign In with Facebook</a>
     </div>
   </div>
   {{/if}}

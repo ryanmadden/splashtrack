@@ -32,13 +32,18 @@ Template.record.helpers({
     var activeGame = Games.findOne({_id: Session.get('gameId')});
     if (activeGame) {
       var activeRecord = activeGame.records[Meteor.userId()];
+      activeRecord = _.object(_.map(activeRecord, function (num, key) {
+        return [key, num || 0];
+      }));
+      var total = _.keys(activeRecord);
+      console.log(total);
       return activeRecord;
     }
     else {
       return {
-        hits: '',
-        misses: '',
-        glass: ''
+        hits: 0,
+        misses: 0,
+        glass: 0
       }
     }
   },

@@ -1,21 +1,24 @@
 <template name="record">
   <div class="row row-padded">
-    <div class="col s12 right-align">
-      <a class="waves-effect waves-light btn btn-record">
+    <div class="col s6 center">
+      <h1>{{hitsRaw}}</h1>
+    </div>
+    <div class="col s6 right-align">
+      <a class="waves-effect waves-light btn btn-record btn-hit">
         <p class="record-label">HIT</p>
       </a>
     </div>
   </div>
   <div class="row">
     <div class="col s12 right-align">
-      <a class="waves-effect waves-light btn btn-record">
+      <a class="waves-effect waves-light btn btn-record btn-miss">
         <p class="record-label">MISS</p>
       </a>
     </div>
   </div>
   <div class="row">
     <div class="col s12 right-align">
-      <a class="waves-effect waves-light btn btn-record">
+      <a class="waves-effect waves-light btn btn-record btn-glass">
         <p class="record-label">GLASS</p>
       </a>
     </div>
@@ -25,4 +28,5 @@
       <a class="waves-effect waves-light btn">UNDO</a>
     </div>
   </div>
+  {{activeGame.records}}
 </template>

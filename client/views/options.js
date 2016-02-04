@@ -26,11 +26,12 @@ Template.options.events({
     Games.insert({
       date: new Date(),
       roster: rstr,
+      activePlayer: p1,
       records: {
-        p1: {hits: null, misses: null, glass: null},
-        p2: {hits: null, misses: null, glass: null},
-        p3: {hits: null, misses: null, glass: null},
-        p4: {hits: null, misses: null, glass: null}
+        [p1]: {hits: null, misses: null, glass: null},
+        [p2]: {hits: null, misses: null, glass: null},
+        [p3]: {hits: null, misses: null, glass: null},
+        [p4]: {hits: null, misses: null, glass: null}
       },
       recordType: rt,
       recordPlayers: rp

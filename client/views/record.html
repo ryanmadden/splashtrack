@@ -38,36 +38,27 @@
   <div class="row">
     <div class="col s7 center">
       <h2>{{activeRecord.glass}}       
-       <sub>
-        {{#if activeRecord.glassRatio}}
-        ({{activeRecord.glassRatio}}%)
-        {{else}}
-        (0%)
-        {{/if}}
-      </sub>
-    </h2>
+        <sub>
+          {{#if activeRecord.glassRatio}}
+          ({{activeRecord.glassRatio}}%)
+          {{else}}
+          (0%)
+          {{/if}}
+        </sub>
+      </h2>
+    </div>
+    <div class="col s5 right-align">
+      <a class="waves-effect waves-light btn btn-record btn-glass">
+        <p class="record-label">GLASS</p>
+      </a>
+    </div>
   </div>
-  <div class="col s5 right-align">
-    <a class="waves-effect waves-light btn btn-record btn-glass">
-      <p class="record-label">GLASS</p>
-    </a>
+  <div class="row row-padded">
+    <div class="col s12 center">
+      <a class="waves-effect waves-light btn disabled">UNDO</a>
+    </div>
   </div>
-</div>
-<div class="row row-padded">
-  <div class="col s12 center">
-    <a class="waves-effect waves-light btn disabled">UNDO</a>
-  </div>
-</div>
-
-<div id="modal1" class="modal">
-  <div class="modal-content">
-    <h4>FINISH GAME</h4>
-    <p>A bunch of text</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-  </div>
-</div>
+  {{> finishModal}}
 </template>
 
 <template name="recordnav">

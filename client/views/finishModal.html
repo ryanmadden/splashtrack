@@ -1,0 +1,40 @@
+<template name="finishModal">
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>FINISH GAME</h4>
+      <p>How many caps did each player hit?</p>
+      <div class="row">
+        <div class="col s6">
+          <div class="input-field">
+            <input id="first_name" type="number" class="validate">
+            <label for="first_name">{{p1.profile.name}}</label>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="input-field">
+            <input id="first_name" type="number" class="validate">
+            <label for="first_name">{{p2.profile.name}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <div class="input-field">
+            <input id="first_name" type="number" class="validate">
+            <label for="first_name">{{p3.profile.name}}</label>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="input-field">
+            <input id="first_name" type="number" class="validate">
+            <label for="first_name">{{p4.profile.name}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">FINISH GAME</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat btn-close-modal">CANCEL</a>
+    </div>
+  </div>
+</template>

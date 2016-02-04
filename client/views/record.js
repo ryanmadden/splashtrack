@@ -3,6 +3,10 @@ Template.record.onCreated(function() {
     var currGame = Games.findOne({active: true, roster: Meteor.userId()});
     if (currGame) {
       Session.set('gameId', currGame._id);
+      Session.set('player1', currGame.roster[0]);
+      Session.set('player2', currGame.roster[1]);
+      Session.set('player3', currGame.roster[2]);
+      Session.set('player4', currGame.roster[3]);
     }
     else {
       Router.go('/');
@@ -26,6 +30,9 @@ Template.record.events({
   'click .btn-miss': function() {
     var currGame = Games.findOne({_id: Session.get('gameId')});
     Meteor.call('recordHit', Session.get('gameId'), currGame.activePlayer, 'misses');
+  },
+  'click .btn-close-modal': function() {
+    $('#modal1').closeModal();
   }
 })
 

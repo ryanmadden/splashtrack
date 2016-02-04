@@ -29,12 +29,14 @@ Template.newGame.events({
   'click .btn-next': function () {
     //TODO validate plater input
     //TODO set roster session variable and create game
+
     Router.go('/options');
   },
   'click .btn-back': function () {
-    //TODO validate plater input
-    //TODO set roster session variable and create game
     Router.go('/');
+  },
+  'click option': function () {
+    console.log('fuck');
   }
 });
 

@@ -1,48 +1,10 @@
 <template name="newGame">
-<!--   <h4>Team 1</h4>
+  <h4>Team 1</h4>
   {{> inputAutocomplete settings=settings id="player1" class="input-xlarge" placeholder="Player 1"}}
   {{> inputAutocomplete settings=settings id="player2" class="input-xlarge" placeholder="Player 2"}}
   <h4>Team 2</h4>
   {{> inputAutocomplete settings=settings id="player1" class="input-xlarge" placeholder="Player 1"}}
-  {{> inputAutocomplete settings=settings id="player2" class="input-xlarge" placeholder="Player 2"}} -->
-  <div class="row">
-    <h4>Team 1</h4>
-    <div class="input-field col s12 m6">
-      <select class="">
-        <option value="" disabled selected>Player 1</option>
-        {{#each users}}
-        {{> user}}
-        {{/each}}
-      </select>
-    </div>
-    <div class="input-field col s12 m6">
-      <select class="">
-        <option value="" disabled selected>Player 2</option>
-        {{#each users}}
-        {{> user}}
-        {{/each}}
-      </select>
-    </div>
-  </div>
-  <div class="row">
-    <h4>Team 2</h4>
-    <div class="input-field col s12 m6">
-      <select class="">
-        <option value="" disabled selected>Player 3</option>
-        {{#each users}}
-        {{> user}}
-        {{/each}}
-      </select>
-    </div>
-    <div class="input-field col s12 m6">
-      <select class="">
-        <option value="" disabled selected>Player 4</option>
-        {{#each users}}
-        {{> user}}
-        {{/each}}
-      </select>
-    </div>
-  </div>
+  {{> inputAutocomplete settings=settings id="player2" class="input-xlarge" placeholder="Player 2"}}
   <div class="row">
     <div class="col s12 m6">
       <a class="waves-effect waves-light btn btn-next">NEXT</a>
@@ -56,10 +18,11 @@
 </template>
 
 <template name="userPill">
-  <!-- <span class="label">{{profile.name}}</span> -->
-  <li class="collection-item">{{profile.name}} {{checkMe}}</li>
+  <li class="user-dropdown-item">
+    <img src="{{profile.picture}}" class="left circle img user-dropdown-image">
+    <span class="user-dropdown-name">{{profile.name}} {{checkMe}}</span>
+  </li>
 </template>
+
 <template name="noUserPill">
-  <!-- <span class="label">{{profile.name}}</span> -->
-  <!-- <li class="collection-item"><em>(no match)</em></li> -->
 </template>

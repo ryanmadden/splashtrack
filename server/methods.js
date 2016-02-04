@@ -1,3 +1,7 @@
 Meteor.methods({
-  // Methods go here
+  resetLoginConfig: function() {
+    Accounts.loginServiceConfiguration.remove({
+      service: "facebook"
+    });
+  }
 });

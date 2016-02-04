@@ -1,5 +1,5 @@
 <template name="layout">
- <nav>
+<!--  <nav>
   <div class="nav-wrapper">
     <div class="row">
       <div class="col s12">
@@ -10,6 +10,18 @@
       </div>
     </div>
   </div>
+</nav> -->
+<nav>
+  <a href="#" class="brand-logo center">SPLASHTRACK</a>
+  <ul class="right hide-on-med-and-down">
+    <li><a href="#!">First Sidebar Link</a></li>
+    <li><a href="#!">Second Sidebar Link</a></li>
+  </ul>
+  <ul id="slide-out" class="side-nav">
+    <li><a href="#!">First Sidebar Link</a></li>
+    <li><a href="#!">Second Sidebar Link</a></li>
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 </nav>
 <div class="container">
   {{> yield "main"}}

@@ -66,3 +66,11 @@ sub {
 .btn-finish {
   cursor: pointer;
 }
+
+.collapsible-header {
+  font-size: 16px;
+}
+
+.collapsible-body {
+  background-color: #eceff1;
+}

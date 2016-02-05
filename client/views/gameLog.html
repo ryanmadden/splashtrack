@@ -11,77 +11,173 @@
         <div class="card-content white-text center">
           <span class="card-title">{{homeScore}} - {{awayScore}}</span>
           <h6>Home</h6>
-          <ul class="home-wrapper">
-            <li class="-autocomplete-item selected">
-              <li class="user-dropdown-item">
-                <!-- <img src="http://graph.facebook.com/10208822684583283/picture/?type=large" class="left circle img user-dropdown-image"> -->
-                <span class="user-dropdown-name"> 
-                  <div class="col s8">        
-                    {{#if playerOne.name}}
-                    {{playerOne.name}}
-                    {{else}}
-                    Guest
-                    {{/if}}
-                  </div>
-                  <div class="col s4">
-                    {{playerOne.hits}}
-                  </div>
-                </span>
-              </li>  
+          <ul class="collapsible teal-text text-lighten-1" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header">
+                <div class="col s7 right-align">
+                  {{#if playerOne.name}}
+                  {{playerOne.name}}
+                  {{else}}
+                  Guest
+                  {{/if}}
+                </div>
+                <div class="col s5 left-align">
+                  {{playerOne.hits}}
+                </div>
+              </div>
+              <div class="collapsible-body">
+                {{#if playerOne.goodData}}
+                <table class="centered">
+                  <thead>
+                    <tr>
+                      <th data-field="id">Hit</th>
+                      <th data-field="name">Miss</th>
+                      <th data-field="price">Glass</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{playerOne.hits}}</td>
+                      <td>{{playerOne.misses}}</td>
+                      <td>{{playerOne.glass}}</td>
+                    </tr>
+                    <tr>
+                      <td>{{playerOne.hitRatio}}%</td>
+                      <td>{{playerOne.missRatio}}%</td>
+                      <td>{{playerOne.glassRatio}}%</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {{else}}
+                <p>No Data</p>
+                {{/if}}
+              </div>
             </li>
-            <li class="-autocomplete-item selected">
-              <li class="user-dropdown-item">
-                <!-- <img src="http://graph.facebook.com/10208822684583283/picture/?type=large" class="left circle img user-dropdown-image"> -->
-                <span class="user-dropdown-name"> 
-                  <div class="col s8">        
-                    {{#if playerTwo.name}}
-                    {{playerTwo.name}}
-                    {{else}}
-                    Guest
-                    {{/if}}
-                  </div>
-                  <div class="col s4">
-                    {{playerTwo.hits}}
-                  </div>
-                </span>
-              </li>  
+            <li>
+              <div class="collapsible-header">
+                <div class="col s7 right-align">
+                  {{#if playerTwo.name}}
+                  {{playerTwo.name}}
+                  {{else}}
+                  Guest
+                  {{/if}}
+                </div>
+                <div class="col s5 left-align">
+                  {{playerTwo.hits}}
+                </div>
+              </div>
+              <div class="collapsible-body">
+                {{#if playerTwo.goodData}}
+                <table class="centered">
+                  <thead>
+                    <tr>
+                      <th data-field="id">Hit</th>
+                      <th data-field="name">Miss</th>
+                      <th data-field="price">Glass</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{playerTwo.hits}}</td>
+                      <td>{{playerTwo.misses}}</td>
+                      <td>{{playerTwo.glass}}</td>
+                    </tr>
+                    <tr>
+                      <td>{{playerTwo.hitRatio}}%</td>
+                      <td>{{playerTwo.missRatio}}%</td>
+                      <td>{{playerTwo.glassRatio}}%</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {{else}}
+                <p>No Data</p>
+                {{/if}}
+              </div>
             </li>
           </ul>
           <h6>Away</h6>
-          <ul class="home-wrapper">
-            <li class="-autocomplete-item selected">
-              <li class="user-dropdown-item">
-                <!-- <img src="http://graph.facebook.com/10208822684583283/picture/?type=large" class="left circle img user-dropdown-image"> -->
-                <span class="user-dropdown-name"> 
-                  <div class="col s8">        
-                    {{#if playerThree.name}}
-                    {{playerThree.name}}
-                    {{else}}
-                    Guest
-                    {{/if}}
-                  </div>
-                  <div class="col s4">
-                    {{playerThree.hits}}
-                  </div>
-                </span>
-              </li>  
+          <ul class="collapsible teal-text text-lighten-1" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header">
+                <div class="col s7 right-align">
+                  {{#if playerThree.name}}
+                  {{playerThree.name}}
+                  {{else}}
+                  Guest
+                  {{/if}}
+                </div>
+                <div class="col s5 left-align">
+                  {{playerThree.hits}}
+                </div>
+              </div>
+              <div class="collapsible-body">
+                {{#if playerTwo.goodData}}
+                <table class="centered">
+                  <thead>
+                    <tr>
+                      <th data-field="id">Hit</th>
+                      <th data-field="name">Miss</th>
+                      <th data-field="price">Glass</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{playerTwo.hits}}</td>
+                      <td>{{playerTwo.misses}}</td>
+                      <td>{{playerTwo.glass}}</td>
+                    </tr>
+                    <tr>
+                      <td>{{playerTwo.hitRatio}}%</td>
+                      <td>{{playerTwo.missRatio}}%</td>
+                      <td>{{playerTwo.glassRatio}}%</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {{else}}
+                <p>No Data</p>
+                {{/if}}
+              </div>
             </li>
-            <li class="-autocomplete-item selected">
-              <li class="user-dropdown-item">
-                <!-- <img src="http://graph.facebook.com/10208822684583283/picture/?type=large" class="left circle img user-dropdown-image"> -->
-                <span class="user-dropdown-name"> 
-                  <div class="col s8">        
-                    {{#if playerFour.name}}
-                    {{playerFour.name}}
-                    {{else}}
-                    Guest
-                    {{/if}}
-                  </div>
-                  <div class="col s4">
-                    {{playerFour.hits}}
-                  </div>
-                </span>
-              </li>  
+            <li>
+              <div class="collapsible-header">
+                <div class="col s7 right-align">
+                  {{#if playerFour.name}}
+                  {{playerFour.name}}
+                  {{else}}
+                  Guest
+                  {{/if}}
+                </div>
+                <div class="col s5 left-align">
+                  {{playerFour.hits}}
+                </div>
+              </div>
+              <div class="collapsible-body">
+                {{#if playerFour.goodData}}
+                <table class="centered">
+                  <thead>
+                    <tr>
+                      <th data-field="id">Hit</th>
+                      <th data-field="name">Miss</th>
+                      <th data-field="price">Glass</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{playerFour.hits}}</td>
+                      <td>{{playerFour.misses}}</td>
+                      <td>{{playerFour.glass}}</td>
+                    </tr>
+                    <tr>
+                      <td>{{playerFour.hitRatio}}%</td>
+                      <td>{{playerFour.missRatio}}%</td>
+                      <td>{{playerFour.glassRatio}}%</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {{else}}
+                <p>No Data</p>
+                {{/if}}
+              </div>
             </li>
           </ul>
         </div>

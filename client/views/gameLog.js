@@ -8,9 +8,25 @@ Template.gameCard.helpers({
   playerOne: function () {
     var name = this.homeNames[0];
     var hits = this.records[this.roster[0]].hits;
+    var misses = this.records[this.roster[0]].misses;
+    var glass = this.records[this.roster[0]].glass;
+    if (hits && misses && glass) {
+      var total = hits + misses + glass;
+      var hitRatio = Math.round(hits/total*100);
+      var missRatio =  Math.round(misses/total*100);
+      var glassRatio =  Math.round(glass/total*100);
+      var goodData = true;
+    }
+    console.log(goodData);
     return {
       name: name,
-      hits: hits
+      hits: hits,
+      misses: this.records[this.roster[0]].misses || 'No Data',
+      glass: this.records[this.roster[0]].glass || 'No Data',
+      goodData: goodData,
+      hitRatio: hitRatio,
+      missRatio: missRatio,
+      glassRatio: glassRatio
     };
   },
   playerTwo: function () {
@@ -38,3 +54,9 @@ Template.gameCard.helpers({
     };
   }
 });
+
+Template.gameCard.onRendered(function() {
+  $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+})

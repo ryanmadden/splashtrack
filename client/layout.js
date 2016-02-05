@@ -5,3 +5,9 @@ Template.layout.onRendered(function() {
     closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
   });
 })
+
+Template.layout.events({
+  'click .btn-home': function () {
+    Router.go('/');
+  }
+});

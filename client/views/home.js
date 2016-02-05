@@ -15,6 +15,9 @@ Template.home.events({
     else {
       Router.go('/new');
     }
+  },
+    'click .btn-gamelog': function () {
+Router.go('/gamelog');
   }
 });
 

@@ -23,6 +23,10 @@ nav .brand-logo {
   margin-top: 10px;
 }
 
+.row-super-padded {
+  margin-top: 30vh;
+}
+
 .-autocomplete-container {
   margin-top: 27px;
 }

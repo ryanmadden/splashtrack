@@ -1,0 +1,91 @@
+<template name="gameLog">
+  {{#each games}}
+  {{>gameCard}}
+  {{/each}}
+</template>
+
+<template name="gameCard">
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text center">
+          <span class="card-title">{{homeScore}} - {{awayScore}}</span>
+          <h6>Home</h6>
+          <ul class="home-wrapper">
+            <li class="-autocomplete-item selected">
+              <li class="user-dropdown-item">
+                <!-- <img src="http://graph.facebook.com/10208822684583283/picture/?type=large" class="left circle img user-dropdown-image"> -->
+                <span class="user-dropdown-name"> 
+                  <div class="col s8">        
+                    {{#if playerOne.name}}
+                    {{playerOne.name}}
+                    {{else}}
+                    Guest
+                    {{/if}}
+                  </div>
+                  <div class="col s4">
+                    {{playerOne.hits}}
+                  </div>
+                </span>
+              </li>  
+            </li>
+            <li class="-autocomplete-item selected">
+              <li class="user-dropdown-item">
+                <!-- <img src="http://graph.facebook.com/10208822684583283/picture/?type=large" class="left circle img user-dropdown-image"> -->
+                <span class="user-dropdown-name"> 
+                  <div class="col s8">        
+                    {{#if playerTwo.name}}
+                    {{playerTwo.name}}
+                    {{else}}
+                    Guest
+                    {{/if}}
+                  </div>
+                  <div class="col s4">
+                    {{playerTwo.hits}}
+                  </div>
+                </span>
+              </li>  
+            </li>
+          </ul>
+          <h6>Away</h6>
+          <ul class="home-wrapper">
+            <li class="-autocomplete-item selected">
+              <li class="user-dropdown-item">
+                <!-- <img src="http://graph.facebook.com/10208822684583283/picture/?type=large" class="left circle img user-dropdown-image"> -->
+                <span class="user-dropdown-name"> 
+                  <div class="col s8">        
+                    {{#if playerThree.name}}
+                    {{playerThree.name}}
+                    {{else}}
+                    Guest
+                    {{/if}}
+                  </div>
+                  <div class="col s4">
+                    {{playerThree.hits}}
+                  </div>
+                </span>
+              </li>  
+            </li>
+            <li class="-autocomplete-item selected">
+              <li class="user-dropdown-item">
+                <!-- <img src="http://graph.facebook.com/10208822684583283/picture/?type=large" class="left circle img user-dropdown-image"> -->
+                <span class="user-dropdown-name"> 
+                  <div class="col s8">        
+                    {{#if playerFour.name}}
+                    {{playerFour.name}}
+                    {{else}}
+                    Guest
+                    {{/if}}
+                  </div>
+                  <div class="col s4">
+                    {{playerFour.hits}}
+                  </div>
+                </span>
+              </li>  
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

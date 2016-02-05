@@ -68,6 +68,12 @@ Template.finishModal.events({
         $set: {['records.' + Session.get('player4') + '.hits']: Session.get('playerFourScore')}
       });
       Games.update(gameId, {
+        $set: {homeScore: Session.get('playerOneScore') + Session.get('playerTwoScore')}
+      });
+      Games.update(gameId, {
+        $set: {awayScore: Session.get('playerThreeScore') + Session.get('playerFourScore')}
+      });
+      Games.update(gameId, {
         $set: {active: false}
       });
       Session.keys = {};

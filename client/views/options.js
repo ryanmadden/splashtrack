@@ -25,8 +25,12 @@ Template.options.events({
     var rstr = [p1, p2, p3, p4];
     Games.insert({
       active: true,
-      date: new Date(),
+      startDate: new Date(),
+      endDate: null,
       roster: rstr,
+      rosterNames: [Session.get('player1Name'), Session.get('player2Name'), Session.get('player3Name'), Session.get('player4Name')],
+      homeNames: [Session.get('player1Name'), Session.get('player2Name')],
+      awayNames: [Session.get('player3Name'), Session.get('player4Name')],
       activePlayer: p1,
       records: {
         [p1]: {hits: null, misses: null, glass: null},
@@ -34,6 +38,8 @@ Template.options.events({
         [p3]: {hits: null, misses: null, glass: null},
         [p4]: {hits: null, misses: null, glass: null}
       },
+      homeScore: 0,
+      awayScore: 0,
       recordType: rt,
       recordPlayers: rp
     }, function(error, id) {

@@ -44,14 +44,11 @@ Template.record.helpers({
       activeRecord = _.object(_.map(activeRecord, function (num, key) {
         return [key, num || 0];
       }));
-      console.log(activeRecord);
       var total = _.reduce(_.values(activeRecord), function(memo, num){return memo+num; }, 0);
-      console.log(total);
       activeRecord.total = total;
       activeRecord.hitsRatio = Math.round(activeRecord.hits/total*100);
       activeRecord.missesRatio = Math.round(activeRecord.misses/total*100);
       activeRecord.glassRatio = Math.round(activeRecord.glass/total*100);
-      console.log(activeRecord.hitsRatio);
       return activeRecord;
     }
     else {

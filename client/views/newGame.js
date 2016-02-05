@@ -1,8 +1,12 @@
 Template.newGame.onCreated(function() {
-  Session.set('player1', null);
-  Session.set('player2', null);
-  Session.set('player3', null)
-  Session.set('player4', null);
+  Session.set('player1', 'Player 1');
+  Session.set('player2', 'Player 2');
+  Session.set('player3', 'Player 3');
+  Session.set('player4', 'Player 4');
+  Session.set('player1Name', 'Player 1');
+  Session.set('player2Name', 'Player 2');
+  Session.set('player3Name', 'Player 3');
+  Session.set('player4Name', 'Player 4');
 });
 
 Template.newGame.onRendered(function() {

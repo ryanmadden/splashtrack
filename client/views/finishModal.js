@@ -15,7 +15,7 @@ Template.finishModal.helpers({
   },
   p1: function() {
     var user = Meteor.users.findOne({_id: Session.get('player1')});
-    return user;
+    return user || {profile: {name: 'Player 1'}};
   },
   p2: function() {
     var user = Meteor.users.findOne({_id: Session.get('player2')});
@@ -39,8 +39,6 @@ Template.finishModal.helpers({
 
 Template.finishModal.events({
   'change #playerOneScore': function () {
-    console.log(event);
-    console.log(parseInt(event.target.value) || 0);
     Session.set('playerOneScore', parseInt(event.target.value) || 0);
   },
   'change #playerTwoScore': function () {

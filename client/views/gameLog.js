@@ -30,7 +30,7 @@ Template.gameCard.helpers({
     };
   },
   playerFour: function () {
-    var name = this.awayNames[0];
+    var name = this.awayNames[1];
     var hits = this.records[this.roster[3]].hits;
     return {
       name: name,

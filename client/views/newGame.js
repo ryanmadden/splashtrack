@@ -30,7 +30,6 @@ Template.newGame.helpers({
     };
   },
   users: function() {
-    console.log(Meteor.users.find().fetch());
     $('select').material_select();
     return Meteor.users.find().fetch();
   }

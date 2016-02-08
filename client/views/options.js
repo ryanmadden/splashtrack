@@ -31,7 +31,7 @@ Template.options.events({
       rosterNames: [Session.get('player1Name'), Session.get('player2Name'), Session.get('player3Name'), Session.get('player4Name')],
       homeNames: [Session.get('player1Name'), Session.get('player2Name')],
       awayNames: [Session.get('player3Name'), Session.get('player4Name')],
-      activePlayer: p1,
+      activePlayer: Meteor.userId(),
       records: {
         [p1]: {hits: null, misses: null, glass: null},
         [p2]: {hits: null, misses: null, glass: null},

@@ -6,18 +6,19 @@ Template.options.onRendered(function(){
   var rstr = [p1, p2, p3, p4];
   if (!_.contains(rstr, Meteor.userId())) {
     console.log('you"re not in the game');
-    $('#soloPlayers').attr('disabled', 'disabled');
-    $('#soloPlayers').removeAttr('checked');
-    if ($('#allPlayers').attr('disabled') === 'disabled') {
-      $('.btn-next').addClass('disabled');
-    }
+    $('#hmg').attr('disabled', 'disabled');
+    $('#hmg').removeAttr('checked');
+    // if ($('#allPlayers').attr('disabled') === 'disabled') {
+    //   $('.btn-next').addClass('disabled');
+    // }
+    $('#score-only').attr('checked', 'checked');
   }
 });
 
 Template.options.events({
   'click .btn-next:not(.disabled)': function () {
     var rt = $('.record-type-form input[type=radio]:checked').attr('recordType');
-    var rp = $('.record-players-form input[type=radio]:checked').attr('recordPlayers');
+    // var rp = $('.record-players-form input[type=radio]:checked').attr('recordPlayers');
     var p1 = Session.get('player1');
     var p2 = Session.get('player2');
     var p3 = Session.get('player3');
@@ -41,12 +42,17 @@ Template.options.events({
       homeScore: 0,
       awayScore: 0,
       recordType: rt,
-      recordPlayers: rp
     }, function(error, id) {
       Session.set('gameId', id);
       console.log("The game ID is: " + id);
+      if (rt === 'all') {
+        Router.go('/record');
+      }
+      else {
+        Router.go('/scoreboard');
+      }
+
     });
-    Router.go('/record');
   },
   'click .btn-back': function () {
     Router.go('/new');

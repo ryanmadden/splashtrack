@@ -10,14 +10,20 @@ Template.home.events({
   },
   'click .btn-new-game': function () {
     if (Session.get('gameId')) {
-      Router.go('/record');
+      var currGame = Games.findOne({_id: Session.get('gameId')});
+      if (currGame.recordType === "hits") {
+        Router.go('/scoreboard');
+      }
+      else {
+        Router.go('/record');
+      }
     }
     else {
       Router.go('/new');
     }
   },
-    'click .btn-gamelog': function () {
-Router.go('/gamelog');
+  'click .btn-gamelog': function () {
+    Router.go('/gamelog');
   }
 });
 

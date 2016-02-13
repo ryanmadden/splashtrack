@@ -128,6 +128,20 @@ Template.gameCard.helpers({
         hits: hits
       };
     }
+  },
+  superUser: function() {
+    if (Meteor.user()) {
+      return Meteor.user().profile.name === "Ryan Madden";
+    }
+    else {
+      return false;
+    }
+  }
+});
+
+Template.gameCard.events({
+  'click .btn-delete': function () {
+    Meteor.call('deleteGame', this._id);
   }
 });
 

@@ -20,7 +20,6 @@ Template.record.onRendered(function() {
 
 Template.record.events({
   'click .btn-glass': function() {
-    event.preventDefault();
     Meteor.call('recordHit', Session.get('gameId'), Meteor.userId(), 'glass');
     // var currGame = Games.findOne({_id: Session.get('gameId')});
     // recordHit(Session.get('gameId'), currGame.activePlayer, 'glass');
@@ -45,9 +44,9 @@ Template.record.helpers({
     var activeGame = Games.findOne({_id: Session.get('gameId')});
     if (activeGame) {
       var activeRecord = activeGame.records[Meteor.userId()];
-      activeRecord = _.object(_.map(activeRecord, function (num, key) {
-        return [key, num || 0];
-      }));
+      // activeRecord = _.object(_.map(activeRecord, function (num, key) {
+      //   return [key, num || 0];
+      // }));
       var total = _.reduce(_.values(activeRecord), function(memo, num){return memo+num; }, 0);
       activeRecord.total = total;
       activeRecord.hitsRatio = Math.round(activeRecord.hits/total*100);

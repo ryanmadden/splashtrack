@@ -44,6 +44,9 @@ Template.options.events({
       Session.set('gameId', id);
       console.log("The game ID is: " + id);
       if (rt === 'all') {
+        Games.update(id, {
+          $set: {['records.' + Meteor.userId()]: {glass: 0, hits: 0, misses: 0}}
+        });
         Router.go('/record');
       }
       else {
@@ -51,8 +54,8 @@ Template.options.events({
       }
 
     });
-  },
-  'click .btn-back': function () {
-    Router.go('/new');
-  }
+},
+'click .btn-back': function () {
+  Router.go('/new');
+}
 });

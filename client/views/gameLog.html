@@ -15,18 +15,14 @@
             <li>
               <div class="collapsible-header">
                 <div class="col s7 right-align">
-                  {{#if playerOne.name}}
-                  {{playerOne.name}}
-                  {{else}}
-                  Guest
-                  {{/if}}
+                  {{playerData.player1.name}}
                 </div>
                 <div class="col s5 left-align">
-                  {{playerOne.hits}}
+                  {{playerData.player1.hits}}
                 </div>
               </div>
               <div class="collapsible-body">
-                {{#if playerOne.goodData}}
+                {{#if playerData.player1.goodData}}
                 <table class="centered">
                   <thead>
                     <tr>
@@ -37,14 +33,14 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{{playerOne.hits}}</td>
-                      <td>{{playerOne.misses}}</td>
-                      <td>{{playerOne.glass}}</td>
+                      <td>{{playerData.player1.hits}}</td>
+                      <td>{{playerData.player1.misses}}</td>
+                      <td>{{playerData.player1.glass}}</td>
                     </tr>
                     <tr>
-                      <td>{{playerOne.hitRatio}}%</td>
-                      <td>{{playerOne.missRatio}}%</td>
-                      <td>{{playerOne.glassRatio}}%</td>
+                      <td>{{playerData.player1.hitRatio}}%</td>
+                      <td>{{playerData.player1.missRatio}}%</td>
+                      <td>{{playerData.player1.glassRatio}}%</td>
                     </tr>
                   </tbody>
                 </table>

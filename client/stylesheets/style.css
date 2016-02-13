@@ -74,3 +74,7 @@ sub {
 .collapsible-body {
   background-color: #eceff1;
 }
+
+.margin-none {
+  margin: 0;
+}

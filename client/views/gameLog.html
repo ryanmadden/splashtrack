@@ -9,175 +9,50 @@
     <div class="col s12 m6">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text center">
-          <span class="card-title">{{homeScore}} - {{awayScore}}</span>
-          <h6>Home</h6>
-          <ul class="collapsible teal-text text-lighten-1" data-collapsible="accordion">
-            <li>
-              <div class="collapsible-header">
-                <div class="col s7 right-align">
-                  {{playerData.player1.name}}
-                </div>
-                <div class="col s5 left-align">
-                  {{playerData.player1.hits}}
-                </div>
+          <div class="row">
+            <div class="col s4">
+              <h3 class="margin-none">{{homeScore}}</h3>
+            </div>
+            <div class="col s8">
+              <div class="col s7 right-align">
+                {{playerData.player1.name}}
               </div>
-              <div class="collapsible-body">
-                {{#if playerData.player1.goodData}}
-                <table class="centered">
-                  <thead>
-                    <tr>
-                      <th data-field="id">Hit</th>
-                      <th data-field="name">Miss</th>
-                      <th data-field="price">Glass</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{{playerData.player1.hits}}</td>
-                      <td>{{playerData.player1.misses}}</td>
-                      <td>{{playerData.player1.glass}}</td>
-                    </tr>
-                    <tr>
-                      <td>{{playerData.player1.hitRatio}}%</td>
-                      <td>{{playerData.player1.missRatio}}%</td>
-                      <td>{{playerData.player1.glassRatio}}%</td>
-                    </tr>
-                  </tbody>
-                </table>
-                {{else}}
-                <p>No Data</p>
-                {{/if}}
+              <div class="col s5 left-align">
+                {{playerData.player1.hits}}
               </div>
-            </li>
-            <li>
-              <div class="collapsible-header">
-                <div class="col s7 right-align">
-                  {{#if playerTwo.name}}
-                  {{playerTwo.name}}
-                  {{else}}
-                  Guest
-                  {{/if}}
-                </div>
-                <div class="col s5 left-align">
-                  {{playerTwo.hits}}
-                </div>
+              <div class="col s7 right-align">
+                {{playerData.player2.name}}
               </div>
-              <div class="collapsible-body">
-                {{#if playerTwo.goodData}}
-                <table class="centered">
-                  <thead>
-                    <tr>
-                      <th data-field="id">Hit</th>
-                      <th data-field="name">Miss</th>
-                      <th data-field="price">Glass</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{{playerTwo.hits}}</td>
-                      <td>{{playerTwo.misses}}</td>
-                      <td>{{playerTwo.glass}}</td>
-                    </tr>
-                    <tr>
-                      <td>{{playerTwo.hitRatio}}%</td>
-                      <td>{{playerTwo.missRatio}}%</td>
-                      <td>{{playerTwo.glassRatio}}%</td>
-                    </tr>
-                  </tbody>
-                </table>
-                {{else}}
-                <p>No Data</p>
-                {{/if}}
+              <div class="col s5 left-align">
+                {{playerData.player2.hits}}
               </div>
-            </li>
-          </ul>
-          <h6>Away</h6>
-          <ul class="collapsible teal-text text-lighten-1" data-collapsible="accordion">
-            <li>
-              <div class="collapsible-header">
-                <div class="col s7 right-align">
-                  {{#if playerThree.name}}
-                  {{playerThree.name}}
-                  {{else}}
-                  Guest
-                  {{/if}}
-                </div>
-                <div class="col s5 left-align">
-                  {{playerThree.hits}}
-                </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s4">
+              <h3 class="margin-none">{{awayScore}}</h3>
+            </div>
+            <div class="col s8">
+              <div class="col s7 right-align">
+                {{playerData.player3.name}}
               </div>
-              <div class="collapsible-body">
-                {{#if playerThree.goodData}}
-                <table class="centered">
-                  <thead>
-                    <tr>
-                      <th data-field="id">Hit</th>
-                      <th data-field="name">Miss</th>
-                      <th data-field="price">Glass</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{{playerTwo.hits}}</td>
-                      <td>{{playerTwo.misses}}</td>
-                      <td>{{playerTwo.glass}}</td>
-                    </tr>
-                    <tr>
-                      <td>{{playerTwo.hitRatio}}%</td>
-                      <td>{{playerTwo.missRatio}}%</td>
-                      <td>{{playerTwo.glassRatio}}%</td>
-                    </tr>
-                  </tbody>
-                </table>
-                {{else}}
-                <p>No Data</p>
-                {{/if}}
+              <div class="col s5 left-align">
+                {{playerData.player3.hits}}
               </div>
-            </li>
-            <li>
-              <div class="collapsible-header">
-                <div class="col s7 right-align">
-                  {{#if playerFour.name}}
-                  {{playerFour.name}}
-                  {{else}}
-                  Guest
-                  {{/if}}
-                </div>
-                <div class="col s5 left-align">
-                  {{playerFour.hits}}
-                </div>
+              <div class="col s7 right-align">
+                {{playerData.player4.name}}
               </div>
-              <div class="collapsible-body">
-                {{#if playerFour.goodData}}
-                <table class="centered">
-                  <thead>
-                    <tr>
-                      <th data-field="id">Hit</th>
-                      <th data-field="name">Miss</th>
-                      <th data-field="price">Glass</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{{playerFour.hits}}</td>
-                      <td>{{playerFour.misses}}</td>
-                      <td>{{playerFour.glass}}</td>
-                    </tr>
-                    <tr>
-                      <td>{{playerFour.hitRatio}}%</td>
-                      <td>{{playerFour.missRatio}}%</td>
-                      <td>{{playerFour.glassRatio}}%</td>
-                    </tr>
-                  </tbody>
-                </table>
-                {{else}}
-                <p>No Data</p>
-                {{/if}}
+              <div class="col s5 left-align">
+                {{playerData.player4.hits}}
               </div>
-            </li>
-          </ul>
-          {{#if superUser}}
-          <a class="waves-effect waves-light btn btn-delete red darken-1">Delete</a>
+            </div>
+          </div>
+          {{#if false}}
+          <div class="row">
+            <div class="col s12">
+              <a class="waves-effect waves-light btn btn-delete red darken-1">Delete</a>
+            </div>
+          </div>
           {{/if}}
         </div>
       </div>

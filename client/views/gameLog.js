@@ -11,7 +11,7 @@ Template.gameCard.helpers({
     for (var i = 0; i < 4; i++) {
       var accessor = "player" + (1 + i);
       playerData[accessor] = {
-        name: this.roster[i],
+        name: this.rosterNames[i],
         hits: this.records[this.roster[i]].hits,
         misses: this.records[this.roster[i]].misses,
         glass: this.records[this.roster[i]].glass,

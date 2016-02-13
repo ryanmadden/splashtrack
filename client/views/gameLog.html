@@ -5,56 +5,50 @@
 </template>
 
 <template name="gameCard">
-  <div class="row">
-    <div class="col s12 m6">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text center">
-          <div class="row">
-            <div class="col s4">
-              <h3 class="margin-none">{{homeScore}}</h3>
-            </div>
-            <div class="col s8">
-              <div class="col s7 right-align">
-                {{playerData.player1.name}}
-              </div>
-              <div class="col s5 left-align">
-                {{playerData.player1.hits}}
-              </div>
-              <div class="col s7 right-align">
-                {{playerData.player2.name}}
-              </div>
-              <div class="col s5 left-align">
-                {{playerData.player2.hits}}
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s4">
-              <h3 class="margin-none">{{awayScore}}</h3>
-            </div>
-            <div class="col s8">
-              <div class="col s7 right-align">
-                {{playerData.player3.name}}
-              </div>
-              <div class="col s5 left-align">
-                {{playerData.player3.hits}}
-              </div>
-              <div class="col s7 right-align">
-                {{playerData.player4.name}}
-              </div>
-              <div class="col s5 left-align">
-                {{playerData.player4.hits}}
-              </div>
-            </div>
-          </div>
-          {{#if false}}
-          <div class="row">
-            <div class="col s12">
-              <a class="waves-effect waves-light btn btn-delete red darken-1">Delete</a>
-            </div>
-          </div>
-          {{/if}}
+  <div class="card blue-grey darken-1">
+    <div class="card-content white-text center">
+      <div class="row {{#if homeWinner}}blue-grey lighten-2{{/if}}">
+        <div class="col s4">
+          <h3 class="margin-none">{{homeScore}}</h3>
         </div>
+        <div class="col s8">
+          <div class="col s7 right-align">
+            {{playerData.player1.name}}
+          </div>
+          <div class="col s5 left-align">
+            {{playerData.player1.hits}}
+          </div>
+          <div class="col s7 right-align">
+            {{playerData.player2.name}}
+          </div>
+          <div class="col s5 left-align">
+            {{playerData.player2.hits}}
+          </div>
+        </div>
+      </div>
+      <div class="row margin-bottom-none {{#if awayWinner}}blue-grey lighten-2{{/if}}">
+        <div class="col s4">
+          <h3 class="margin-none">{{awayScore}}</h3>
+        </div>
+        <div class="col s8">
+          <div class="col s7 right-align">
+            {{playerData.player3.name}}
+          </div>
+          <div class="col s5 left-align">
+            {{playerData.player3.hits}}
+          </div>
+          <div class="col s7 right-align">
+            {{playerData.player4.name}}
+          </div>
+          <div class="col s5 left-align">
+            {{playerData.player4.hits}}
+          </div>
+        </div>
+        {{#if superUser}}
+        <div class="col s12 row-padded">
+          <a class="waves-effect waves-light btn btn-delete red darken-1">Delete</a>
+        </div>
+        {{/if}}
       </div>
     </div>
   </div>

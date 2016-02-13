@@ -1,12 +1,18 @@
 Template.gameLog.helpers({
   games: function () {
-    console.log(Games.find({}).fetch().reverse());
     return Games.find({}).fetch().reverse();
   }
 });
 
 Template.gameCard.helpers({
+  awayWinner: function () {
+    return this.awayScore > this.homeScore;
+  },
+  homeWinner: function () {
+    return this.homeScore > this.awayScore;
+  },
   playerData: function () {
+    console.log(this);
     var playerData = {};
     for (var i = 0; i < 4; i++) {
       var accessor = "player" + (1 + i);
@@ -28,7 +34,6 @@ Template.gameCard.helpers({
         playerData[accessor].glassRatio = Math.round(playerData[accessor].glass/total*100);
       }
     }
-    console.log(playerData);
     return playerData;
   },
   superUser: function() {

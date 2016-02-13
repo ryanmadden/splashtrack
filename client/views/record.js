@@ -20,35 +20,25 @@ Template.record.onRendered(function() {
 
 Template.record.events({
   'click .btn-glass': function() {
-    var currGame = Games.findOne({_id: Session.get('gameId')});
-    recordHit(Session.get('gameId'), currGame.activePlayer, 'glass');
+    event.preventDefault();
+    Meteor.call('recordHit', Session.get('gameId'), Meteor.userId(), 'glass');
+    // var currGame = Games.findOne({_id: Session.get('gameId')});
+    // recordHit(Session.get('gameId'), currGame.activePlayer, 'glass');
   },
   'click .btn-hit': function() {
-    var currGame = Games.findOne({_id: Session.get('gameId')});
-    recordHit(Session.get('gameId'), currGame.activePlayer, 'hits');
+    Meteor.call('recordHit', Session.get('gameId'), Meteor.userId(), 'hits');
+    // var currGame = Games.findOne({_id: Session.get('gameId')});
+    // recordHit(Session.get('gameId'), currGame.activePlayer, 'hits');
   },
   'click .btn-miss': function() {
-    var currGame = Games.findOne({_id: Session.get('gameId')});
-    recordHit(Session.get('gameId'), currGame.activePlayer, 'misses');
+    Meteor.call('recordHit', Session.get('gameId'), Meteor.userId(), 'misses');
+    // var currGame = Games.findOne({_id: Session.get('gameId')});
+    // recordHit(Session.get('gameId'), currGame.activePlayer, 'misses');
   },
   'click .btn-close-modal': function() {
     $('#modal1').closeModal();
   }
 });
-
-var recordHit = function(gameId, playerId, recordType) {
-  var record = Games.findOne({_id: gameId}).records[playerId][recordType];
-  if (record === null) {
-    Games.update(gameId, {
-      $set: {['records.' + playerId + '.' + recordType]: 1}
-    });
-  }
-  else {
-    Games.update(gameId, {
-      $inc: {['records.' + playerId + '.' + recordType]: 1}
-    });
-  }
-}
 
 Template.record.helpers({
   activeRecord: function() {
@@ -76,5 +66,5 @@ Template.record.helpers({
         glassRatio: 0
       }
     }
-  },
+  }
 });

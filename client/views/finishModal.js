@@ -3,7 +3,13 @@ Template.finishModal.onCreated(function() {
   Session.set('playerTwoScore', 0);
   Session.set('playerThreeScore', 0);
   Session.set('playerFourScore', 0);
-})
+});
+
+Template.finishModal.onRendered(function() {
+  $('#playerTwoScore').val(Session.get('playerTwoScore'));
+  $('#playerThreeScore').val(Session.get('playerThreeScore'));
+  $('#playerFourScore').val(Session.get('playerFourScore'));
+});
 
 Template.finishModal.helpers({
   roster: function () {
@@ -35,6 +41,9 @@ Template.finishModal.helpers({
   t2Score: function () {
     return Session.get('playerThreeScore') + Session.get('playerFourScore');
   },
+  p1Score: function () {
+    return Session.get('playerOneScore');
+  }
 });
 
 Template.finishModal.events({

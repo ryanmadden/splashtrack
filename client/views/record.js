@@ -44,9 +44,6 @@ Template.record.helpers({
     var activeGame = Games.findOne({_id: Session.get('gameId')});
     if (activeGame) {
       var activeRecord = activeGame.records[Meteor.userId()];
-      // activeRecord = _.object(_.map(activeRecord, function (num, key) {
-      //   return [key, num || 0];
-      // }));
       var total = _.reduce(_.values(activeRecord), function(memo, num){return memo+num; }, 0);
       activeRecord.total = total;
       activeRecord.hitsRatio = Math.round(activeRecord.hits/total*100);
@@ -65,5 +62,17 @@ Template.record.helpers({
         glassRatio: 0
       }
     }
+  }
+});
+
+Template.recordnav.events({
+  'click .btn-subtract-glass': function() {
+    Meteor.call('subtractHit', Session.get('gameId'), Meteor.userId(), 'glass');
+  },
+    'click .btn-subtract-hit': function() {
+    Meteor.call('subtractHit', Session.get('gameId'), Meteor.userId(), 'hits');
+  },
+    'click .btn-subtract-miss': function() {
+    Meteor.call('subtractHit', Session.get('gameId'), Meteor.userId(), 'misses');
   }
 });

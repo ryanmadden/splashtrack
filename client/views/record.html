@@ -53,15 +53,12 @@
       </a>
     </div>
   </div>
-  <div class="row row-padded">
-    <div class="col s12 center">
-      <a class="waves-effect waves-light btn disabled">UNDO</a>
-    </div>
-  </div>
   {{> finishModal}}
 </template>
 
 <template name="recordnav">
-  <li><a class="waves-effect waves-light btn modal-trigger modal-finish-trigger" href="#modal1">FINISH GAME</a>
-  </li>
+  <li><a class="modal-trigger modal-finish-trigger" href="#modal1">Edit Score</a></li>
+  <li><a class="btn-subtract-hit">Subtract Hit</a></li>
+  <li><a class="btn-subtract-miss">Subtract Miss</a></li>
+  <li><a class="btn-subtract-glass">Subtract Glass</a></li>
 </template>

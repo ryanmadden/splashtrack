@@ -1,3 +1,7 @@
+body {
+  overflow: inherit !important;
+}
+
 .login-wrapper {
   height: 85vh;
 }

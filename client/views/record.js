@@ -21,18 +21,12 @@ Template.record.onRendered(function() {
 Template.record.events({
   'click .btn-glass': function() {
     Meteor.call('recordHit', Session.get('gameId'), Meteor.userId(), 'glass');
-    // var currGame = Games.findOne({_id: Session.get('gameId')});
-    // recordHit(Session.get('gameId'), currGame.activePlayer, 'glass');
   },
   'click .btn-hit': function() {
     Meteor.call('recordHit', Session.get('gameId'), Meteor.userId(), 'hits');
-    // var currGame = Games.findOne({_id: Session.get('gameId')});
-    // recordHit(Session.get('gameId'), currGame.activePlayer, 'hits');
   },
   'click .btn-miss': function() {
     Meteor.call('recordHit', Session.get('gameId'), Meteor.userId(), 'misses');
-    // var currGame = Games.findOne({_id: Session.get('gameId')});
-    // recordHit(Session.get('gameId'), currGame.activePlayer, 'misses');
   },
   'click .btn-close-modal': function() {
     $('#modal1').closeModal();

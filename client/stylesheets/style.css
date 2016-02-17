@@ -19,6 +19,16 @@ nav .brand-logo {
   height: 100px;
 }
 
+.btn-tiny {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+}
+
+.tiny-score {
+  margin-top: 8px;
+}
+
 .record-label {
   margin-top: 30px;
 }

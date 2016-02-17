@@ -6,9 +6,9 @@ Template.options.onRendered(function(){
   var rstr = [p1, p2, p3, p4];
   if (!_.contains(rstr, Meteor.userId())) {
     console.log('You are not in the game.');
+    $('.btn-next').addClass('disabled');
     $('#hmg').attr('disabled', 'disabled');
-    $('#hmg').removeAttr('checked');
-    $('#score-only').attr('checked', 'checked');
+    // $('#score-only').attr('checked', 'checked');
   }
 });
 
@@ -29,10 +29,10 @@ Template.options.events({
       homeNames: [Session.get('player1Name'), Session.get('player2Name')],
       awayNames: [Session.get('player3Name'), Session.get('player4Name')],
       records: {
-        [p1]: {hits: null, misses: null, glass: null},
-        [p2]: {hits: null, misses: null, glass: null},
-        [p3]: {hits: null, misses: null, glass: null},
-        [p4]: {hits: null, misses: null, glass: null}
+        [p1]: {robust: false, hits: 0, misses: 0, glass: 0, rebuthits: 0, rebutmisses: 0, rebutglass: 0},
+        [p2]: {robust: false, hits: 0, misses: 0, glass: 0, rebuthits: 0, rebutmisses: 0, rebutglass: 0},
+        [p3]: {robust: false, hits: 0, misses: 0, glass: 0, rebuthits: 0, rebutmisses: 0, rebutglass: 0},
+        [p4]: {robust: false, hits: 0, misses: 0, glass: 0, rebuthits: 0, rebutmisses: 0, rebutglass: 0}
       },
       homeScore: 0,
       awayScore: 0,
@@ -42,9 +42,6 @@ Template.options.events({
       Session.set('gameId', id);
       console.log("The game ID is: " + id);
       if (rt === 'all') {
-        Games.update(id, {
-          $set: {['records.' + Meteor.userId()]: {glass: 0, hits: 0, misses: 0}}
-        });
         Router.go('/record');
       }
       else {

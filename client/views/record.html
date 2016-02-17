@@ -1,7 +1,7 @@
 <template name="record">
-  <div class="row row-padded">
+  <div class="row row-padded margin-bottom-none">
     <div class="col s4 center">
-      <h2 class="margin-bottom-none">
+      <h2 class="margin-none">
         {{activeRecord.hits}}
       </h2>
       <p class="margin-top-none">
@@ -13,7 +13,7 @@
       </p>
     </div>
     <div class="col s4 center">
-      <h2 class="margin-bottom-none">
+      <h2 class="margin-none">
         {{activeRecord.misses}}    
       </h2>    
       <p class="margin-top-none">
@@ -25,7 +25,7 @@
       </p>
     </div>
     <div class="col s4 center">
-      <h2 class="margin-bottom-none">
+      <h2 class="margin-none">
         {{activeRecord.glass}}
       </h2>
       <p class="margin-top-none">
@@ -39,27 +39,99 @@
   </div>
   <div class="row">
     <div class="col s4 center">
-      <a class="waves-effect waves-light btn btn-record btn-hit">
+      <a class="waves-effect waves-light btn btn-record btn-hit {{#if rebuttalMode}}deep-orange darken-2{{/if}}">
         <p class="record-label">HIT</p>
       </a>
     </div>
     <div class="col s4 center">
-      <a class="waves-effect waves-light btn btn-record btn-miss">
+      <a class="waves-effect waves-light btn btn-record btn-miss {{#if rebuttalMode}}deep-orange darken-2{{/if}}">
         <p class="record-label">MISS</p>
       </a>
     </div>
     <div class="col s4 center">
-      <a class="waves-effect waves-light btn btn-record btn-glass">
+      <a class="waves-effect waves-light btn btn-record btn-glass {{#if rebuttalMode}}deep-orange darken-2{{/if}}">
         <p class="record-label">GLASS</p>
       </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 center">
+      <a class="waves-effect waves-light btn btn-rebuttal deep-orange darken-2">
+        {{#if rebuttalMode}}
+        CANCEL
+        {{else}}
+        REBUTTAL
+        {{/if}}
+      </a>
+    </div>
+  </div>
+  <div class="row margin-bottom-none">
+    <div class="col s12 center">
+      <h2 class="margin-none">{{hits.home}} - {{hits.away}}</h2>
+    </div>
+  </div>
+  <div class="row center margin-bottom-none">
+    <div class="col s5">
+      <h6>{{hits.p1Name}}</h6>
+    </div>
+    <div class="col s5 offset-s2">
+      <h6>{{hits.p3Name}}</h6>
+    </div>
+  </div>
+  <div class="row center">
+    <div class="col s2">
+      <a class="waves-effect waves-light btn btn-tiny btn-minus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="0">-</a>
+    </div>
+    <div class="col s1">
+      <p class="tiny-score">{{hits.p1}}</p>
+    </div>
+    <div class="col s2">
+      <a class="waves-effect waves-light btn btn-tiny btn-plus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="0">+</a>
+    </div>
+    <div class="col s2 offset-s2">
+      <a class="waves-effect waves-light btn btn-tiny btn-minus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="2">-</a>
+    </div>
+    <div class="col s1">
+      <p class="tiny-score">{{hits.p3}}</p>
+    </div>
+    <div class="col s2">
+      <a class="waves-effect waves-light btn btn-tiny btn-plus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="2">+</a>
+    </div>
+  </div>
+  <div class="row center margin-bottom-none">
+    <div class="col s5">
+      <h6>{{hits.p2Name}}</h6>
+    </div>
+    <div class="col s5 offset-s2">
+      <h6>{{hits.p4Name}}</h6>
+    </div>
+  </div>
+  <div class="row center">
+    <div class="col s2">
+      <a class="waves-effect waves-light btn btn-tiny btn-minus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="1">-</a>
+    </div>
+    <div class="col s1">
+      <p class="tiny-score">{{hits.p2}}</p>
+    </div>
+    <div class="col s2">
+      <a class="waves-effect waves-light btn btn-tiny btn-plus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="1">+</a>
+    </div>
+    <div class="col s2 offset-s2">
+      <a class="waves-effect waves-light btn btn-tiny btn-minus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="3">-</a>
+    </div>
+    <div class="col s1">
+      <p class="tiny-score">{{hits.p4}}</p>
+    </div>
+    <div class="col s2">
+      <a class="waves-effect waves-light btn btn-tiny btn-plus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="3">+</a>
     </div>
   </div>
   {{> finishModal}}
 </template>
 
 <template name="recordnav">
-  <li><a class="modal-trigger modal-finish-trigger" href="#modal1">Edit Score</a></li>
-  <li><a class="btn-subtract-hit">Subtract Hit</a></li>
-  <li><a class="btn-subtract-miss">Subtract Miss</a></li>
-  <li><a class="btn-subtract-glass">Subtract Glass</a></li>
+  <li><a class="modal-trigger modal-finish-trigger" href="#modal1">Finish Game</a></li>
+  <li><a class="btn-subtract-hit">Undo Hit</a></li>
+  <li><a class="btn-subtract-miss">Undo Miss</a></li>
+  <li><a class="btn-subtract-glass">Undo Glass</a></li>
 </template>

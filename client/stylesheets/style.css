@@ -15,12 +15,12 @@ nav .brand-logo {
 }
 
 .btn-record {
-  width: 130px;
-  height: 130px;
+  width: 100px;
+  height: 100px;
 }
 
 .record-label {
-  margin-top: 47px;
+  margin-top: 30px;
 }
 
 .row-padded {
@@ -81,6 +81,10 @@ sub {
 
 .margin-none {
   margin: 0;
+}
+
+.margin-top-none {
+  margin-top: 0;
 }
 
 .margin-bottom-none {

@@ -1,3 +1,14 @@
+Template.home.onCreated(function () {
+  var currGame = Games.findOne({active: true, roster: Meteor.userId()});
+  if (currGame) { 
+    Session.set('gameId', currGame._id);
+    return true; 
+  }
+  else {
+    Session.set('gameId', null);
+  }
+});
+
 Template.home.events({
   'click .btn-login': function () {
     Meteor.loginWithFacebook({ requestPermissions: ['email']},
@@ -29,13 +40,11 @@ Template.home.events({
 
 Template.home.helpers({
   hasActiveGame: function () {
-    var currGame = Games.findOne({active: true, roster: Meteor.userId()});
-    if (currGame) { 
-      Session.set('gameId', currGame._id);
-      return true; 
+    if (Session.get('gameId')) {
+      return true;
     }
     else {
-      return false; 
+      return false;
     }
   }
 });

@@ -15,7 +15,6 @@ Template.options.onRendered(function(){
 Template.options.events({
   'click .btn-next:not(.disabled)': function () {
     var rt = $('.record-type-form input[type=radio]:checked').attr('recordType');
-    // var rp = $('.record-players-form input[type=radio]:checked').attr('recordPlayers');
     var p1 = Session.get('player1');
     var p2 = Session.get('player2');
     var p3 = Session.get('player3');
@@ -38,6 +37,7 @@ Template.options.events({
       homeScore: 0,
       awayScore: 0,
       recordType: rt,
+      createdBy: Meteor.userId(),
     }, function(error, id) {
       Session.set('gameId', id);
       console.log("The game ID is: " + id);

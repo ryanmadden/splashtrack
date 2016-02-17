@@ -1,9 +1,19 @@
 Template.scoreboard.onCreated(function() {
+  if (!Session.get('gameId')) {
+    var currGame = Games.findOne({active: true, roster: Meteor.userId()});
+    if (currGame) {
+      Session.set('gameId', currGame._id);
+    }
+    else {
+      Router.go('/');
+    }
+  }
+
   Session.set('playerOneScore', 0);
   Session.set('playerTwoScore', 0);
   Session.set('playerThreeScore', 0);
   Session.set('playerFourScore', 0);
-})
+});
 
 Template.scoreboard.helpers({
   roster: function () {

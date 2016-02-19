@@ -52,18 +52,14 @@
             <li>
               <div class="collapsible-header">
                 <div class="col s7 right-align">
-                  {{#if playerTwo.name}}
-                  {{playerTwo.name}}
-                  {{else}}
-                  Guest
-                  {{/if}}
+                  {{playerData.player2.name}}
                 </div>
                 <div class="col s5 left-align">
-                  {{playerTwo.hits}}
+                  {{playerData.player2.hits}}
                 </div>
               </div>
               <div class="collapsible-body">
-                {{#if playerTwo.robust}}
+                {{#if playerData.player2.robust}}
                 <table class="centered">
                   <thead>
                     <tr>
@@ -74,14 +70,14 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{{playerTwo.hits}}</td>
-                      <td>{{playerTwo.misses}}</td>
-                      <td>{{playerTwo.glass}}</td>
+                      <td>{{playerData.player2.hits}}</td>
+                      <td>{{playerData.player2.misses}}</td>
+                      <td>{{playerData.player2.glass}}</td>
                     </tr>
                     <tr>
-                      <td>{{playerTwo.hitRatio}}%</td>
-                      <td>{{playerTwo.missRatio}}%</td>
-                      <td>{{playerTwo.glassRatio}}%</td>
+                      <td>{{playerData.player2.hitRatio}}%</td>
+                      <td>{{playerData.player2.missRatio}}%</td>
+                      <td>{{playerData.player2.glassRatio}}%</td>
                     </tr>
                   </tbody>
                 </table>
@@ -96,18 +92,14 @@
             <li>
               <div class="collapsible-header">
                 <div class="col s7 right-align">
-                  {{#if playerThree.name}}
-                  {{playerThree.name}}
-                  {{else}}
-                  Guest
-                  {{/if}}
+                  {{playerData.player3.name}}
                 </div>
                 <div class="col s5 left-align">
-                  {{playerThree.hits}}
+                  {{playerData.player3.hits}}
                 </div>
               </div>
               <div class="collapsible-body">
-                {{#if playerThree.robust}}
+                {{#if playerData.player3.robust}}
                 <table class="centered">
                   <thead>
                     <tr>
@@ -118,14 +110,14 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{{playerTwo.hits}}</td>
-                      <td>{{playerTwo.misses}}</td>
-                      <td>{{playerTwo.glass}}</td>
+                      <td>{{playerData.player3.hits}}</td>
+                      <td>{{playerData.player3.misses}}</td>
+                      <td>{{playerData.player3.glass}}</td>
                     </tr>
                     <tr>
-                      <td>{{playerTwo.hitRatio}}%</td>
-                      <td>{{playerTwo.missRatio}}%</td>
-                      <td>{{playerTwo.glassRatio}}%</td>
+                      <td>{{playerData.player3.hitRatio}}%</td>
+                      <td>{{playerData.player3.missRatio}}%</td>
+                      <td>{{playerData.player3.glassRatio}}%</td>
                     </tr>
                   </tbody>
                 </table>
@@ -137,18 +129,14 @@
             <li>
               <div class="collapsible-header">
                 <div class="col s7 right-align">
-                  {{#if playerFour.name}}
-                  {{playerFour.name}}
-                  {{else}}
-                  Guest
-                  {{/if}}
+                  {{playerData.player4.name}}
                 </div>
                 <div class="col s5 left-align">
-                  {{playerFour.hits}}
+                  {{playerData.player4.hits}}
                 </div>
               </div>
               <div class="collapsible-body">
-                {{#if playerFour.robust}}
+                {{#if playerData.player4.robust}}
                 <table class="centered">
                   <thead>
                     <tr>
@@ -159,14 +147,14 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{{playerFour.hits}}</td>
-                      <td>{{playerFour.misses}}</td>
-                      <td>{{playerFour.glass}}</td>
+                      <td>{{playerData.player4.hits}}</td>
+                      <td>{{playerData.player4.misses}}</td>
+                      <td>{{playerData.player4.glass}}</td>
                     </tr>
                     <tr>
-                      <td>{{playerFour.hitRatio}}%</td>
-                      <td>{{playerFour.missRatio}}%</td>
-                      <td>{{playerFour.glassRatio}}%</td>
+                      <td>{{playerData.player4.hitRatio}}%</td>
+                      <td>{{playerData.player4.missRatio}}%</td>
+                      <td>{{playerData.player4.glassRatio}}%</td>
                     </tr>
                   </tbody>
                 </table>

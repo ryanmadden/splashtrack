@@ -101,7 +101,7 @@ Template.record.helpers({
       }
     }
   },
-  hits: function() {
+  gameData: function() {
     var activeGame = Games.findOne({_id: Session.get('gameId')});
     if (activeGame) {
       var p1Hits = activeGame.records[activeGame.roster[0]].hits;
@@ -113,31 +113,21 @@ Template.record.helpers({
       var p3Rebuts = activeGame.records[activeGame.roster[2]].rebuthits;
       var p4Rebuts = activeGame.records[activeGame.roster[3]].rebuthits;
       return {
-        p1: p1Hits,
-        p2: p2Hits, 
-        p3: p3Hits,
-        p4: p4Hits,
-        p1r: p1Rebuts,
-        p2r: p2Rebuts,
-        p3r: p3Rebuts,
-        p4r: p4Rebuts,
+        playerOne: activeGame.records[activeGame.roster[0]],
+        playerTwo: activeGame.records[activeGame.roster[1]],
+        playerThree: activeGame.records[activeGame.roster[2]],
+        playerFour: activeGame.records[activeGame.roster[3]],
         home: p1Hits + p2Hits - p1Rebuts - p2Rebuts - p3Rebuts - p4Rebuts,
         away: p3Hits + p4Hits - p1Rebuts - p2Rebuts - p3Rebuts - p4Rebuts,
-        p1Name: activeGame.rosterNames[0],
-        p2Name: activeGame.rosterNames[1],
-        p3Name: activeGame.rosterNames[2], 
-        p4Name: activeGame.rosterNames[3]
-      }
+        playerOneName: activeGame.rosterNames[0],
+        playerTwoName: activeGame.rosterNames[1],
+        playerThreeName: activeGame.rosterNames[2], 
+        playerFourName: activeGame.rosterNames[3],
+      };
     }
     else {
-      return {
-        p1: 0,
-        p2: 0, 
-        p3: 0,
-        p4: 0,
-        home: 0,
-        away: 0
-      };
+      alert("gameData error");
+      return null;
     }
   },
   rebuttalMode: function() {

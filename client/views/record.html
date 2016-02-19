@@ -67,15 +67,15 @@
   </div>
   <div class="row margin-bottom-none">
     <div class="col s12 center">
-      <h2 class="margin-none">{{hits.home}} - {{hits.away}}</h2>
+      <h2 class="margin-none">{{gameData.home}} - {{gameData.away}}</h2>
     </div>
   </div>
   <div class="row center margin-bottom-none">
     <div class="col s5">
-      <h6>{{hits.p1Name}}</h6>
+      <h6>{{gameData.playerOneName}}</h6>
     </div>
     <div class="col s5 offset-s2">
-      <h6>{{hits.p3Name}}</h6>
+      <h6>{{gameData.playerTwoName}}</h6>
     </div>
   </div>
   <div class="row center">
@@ -83,7 +83,12 @@
       <a class="waves-effect waves-light btn btn-tiny btn-minus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="0">-</a>
     </div>
     <div class="col s1 padding-none">
-      <p class="tiny-score">{{#if rebuttalMode}}<span class="deep-orange-text text-darken-2">({{hits.p1r}})</span>{{else}}{{hits.p1}}{{/if}}</p>
+      <p class="tiny-score">
+        {{#if rebuttalMode}}
+        <span class="deep-orange-text text-darken-2">({{gameData.playerOne.rebuthits}})</span>
+        {{else}}{{gameData.playerOne.hits}}
+        {{/if}}
+      </p>
     </div>
     <div class="col s2">
       <a class="waves-effect waves-light btn btn-tiny btn-plus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="0">+</a>
@@ -92,7 +97,12 @@
       <a class="waves-effect waves-light btn btn-tiny btn-minus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="2">-</a>
     </div>
     <div class="col s1 padding-none">
-      <p class="tiny-score">{{#if rebuttalMode}}<span class="deep-orange-text text-darken-2">({{hits.p3r}})</span>{{else}}{{hits.p3}}{{/if}}</p>
+      <p class="tiny-score">
+        {{#if rebuttalMode}}
+        <span class="deep-orange-text text-darken-2">({{gameData.playerThree.rebuthits}})</span>
+        {{else}}{{gameData.playerThree.hits}}
+        {{/if}}
+      </p>
     </div>
     <div class="col s2">
       <a class="waves-effect waves-light btn btn-tiny btn-plus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="2">+</a>
@@ -100,10 +110,10 @@
   </div>
   <div class="row center margin-bottom-none">
     <div class="col s5">
-      <h6>{{hits.p2Name}}</h6>
+      <h6>{{gameData.playerTwoName}}</h6>
     </div>
     <div class="col s5 offset-s2">
-      <h6>{{hits.p4Name}}</h6>
+      <h6>{{gameData.playerFourName}}</h6>
     </div>
   </div>
   <div class="row center">
@@ -111,7 +121,12 @@
       <a class="waves-effect waves-light btn btn-tiny btn-minus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="1">-</a>
     </div>
     <div class="col s1 padding-none">
-      <p class="tiny-score">{{#if rebuttalMode}}<span class="deep-orange-text text-darken-2">({{hits.p2r}})</span>{{else}}{{hits.p2}}{{/if}}</p>
+      <p class="tiny-score">
+        {{#if rebuttalMode}}
+        <span class="deep-orange-text text-darken-2">({{gameData.playerTwo.rebuthits}})</span>
+        {{else}}{{gameData.playerTwo.hits}}
+        {{/if}}
+      </p>
     </div>
     <div class="col s2">
       <a class="waves-effect waves-light btn btn-tiny btn-plus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="1">+</a>
@@ -120,7 +135,12 @@
       <a class="waves-effect waves-light btn btn-tiny btn-minus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="3">-</a>
     </div>
     <div class="col s1 padding-none">
-      <p class="tiny-score">{{#if rebuttalMode}}<span class="deep-orange-text text-darken-2">({{hits.p4r}})</span>{{else}}{{hits.p4}}{{/if}}</p>
+      <p class="tiny-score">
+        {{#if rebuttalMode}}
+        <span class="deep-orange-text text-darken-2">({{gameData.playerFour.rebuthits}})</span>
+        {{else}}{{gameData.playerFour.hits}}
+        {{/if}}
+      </p>
     </div>
     <div class="col s2">
       <a class="waves-effect waves-light btn btn-tiny btn-plus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="3">+</a>

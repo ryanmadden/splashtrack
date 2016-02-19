@@ -19,9 +19,9 @@ Template.gameCard.helpers({
       if (playerData[accessor].robust) {
         var total = playerData[accessor].hits + playerData[accessor].misses + playerData[accessor].glass;
         console.log("total: " + total);
-        playerData[accessor].hitRatio = Math.round(playerData[accessor].hits/total*100);
-        playerData[accessor].missRatio = Math.round(playerData[accessor].misses/total*100);
-        playerData[accessor].glassRatio = Math.round(playerData[accessor].glass/total*100);
+        playerData[accessor].hitRatio = Math.round(playerData[accessor].hits/total*100) || 0;
+        playerData[accessor].missRatio = Math.round(playerData[accessor].misses/total*100) || 0;
+        playerData[accessor].glassRatio = Math.round(playerData[accessor].glass/total*100) || 0;
       }
     }
     return playerData;

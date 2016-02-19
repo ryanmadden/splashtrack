@@ -1,6 +1,6 @@
 Template.record.onCreated(function() {
+  var currGame = Games.findOne({active: true, roster: Meteor.userId()});
   if (!Session.get('gameId')) {
-    var currGame = Games.findOne({active: true, roster: Meteor.userId()});
     if (currGame) {
       Session.set('gameId', currGame._id);
       Session.set('player1', currGame.roster[0]);
@@ -9,13 +9,13 @@ Template.record.onCreated(function() {
       Session.set('player4', currGame.roster[3]);
       Session.set('rebuttalMode', false);
       console.log(currGame);
-      if (currGame.records[Meteor.userId()]) {
-        Meteor.call('setRobust', Session.get('gameId'), Meteor.userId(), true);
-      }
     }
     else {
       Router.go('/');
     }
+  }
+  if (currGame.records[Meteor.userId()]) {
+    Meteor.call('setRobust', Session.get('gameId'), Meteor.userId(), true);
   }
 });
 
@@ -130,8 +130,18 @@ Template.record.helpers({
       };
     }
     else {
-      alert("gameData error");
-      return null;
+      return {
+        playerOne: {hits: 0, misses: 0, glass: 0, rebuthits: 0, rebutmisses: 0, glassmisses: 0, robust: false},
+        playerTwo: {hits: 0, misses: 0, glass: 0, rebuthits: 0, rebutmisses: 0, glassmisses: 0, robust: false},
+        playerThree: {hits: 0, misses: 0, glass: 0, rebuthits: 0, rebutmisses: 0, glassmisses: 0, robust: false},
+        playerFour: {hits: 0, misses: 0, glass: 0, rebuthits: 0, rebutmisses: 0, glassmisses: 0, robust: false},
+        home: 0,
+        away: 0,
+        playerOneName: "Guest",
+        playerOneName: "Guest",
+        playerOneName: "Guest",
+        playerOneName: "Guest",
+      }
     }
   },
   rebuttalMode: function() {

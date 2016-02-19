@@ -54,7 +54,7 @@ Template.record.events({
       alert("NoActiveGameException");
     }
   },
-    'click .btn-minus-score': function() {
+  'click .btn-minus-score': function() {
     var activeGame = Games.findOne({_id: Session.get('gameId')});
     var target = $(event.target).attr('roster');
     if (activeGame) {
@@ -127,6 +127,24 @@ Template.record.helpers({
     }
   },
   rebuttalMode: function() {
+    return Session.get('rebuttalMode');
+  }
+});
+
+Template.recordnav.events({
+  'click .btn-subtract-glass': function() {
+    Meteor.call('subtractHit', Session.get('gameId'), Meteor.userId(), 'glass', Session.get('rebuttalMode'));
+  },
+  'click .btn-subtract-hit': function() {
+    Meteor.call('subtractHit', Session.get('gameId'), Meteor.userId(), 'hits', Session.get('rebuttalMode'));
+  },
+  'click .btn-subtract-miss': function() {
+    Meteor.call('subtractHit', Session.get('gameId'), Meteor.userId(), 'misses', Session.get('rebuttalMode'));
+  }
+});
+
+Template.recordnav.helpers({
+  rebuttalMode: function () {
     return Session.get('rebuttalMode');
   }
 });

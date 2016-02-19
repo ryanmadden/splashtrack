@@ -131,7 +131,7 @@
 
 <template name="recordnav">
   <li><a class="modal-trigger modal-finish-trigger" href="#modal1">Finish Game</a></li>
-  <li><a class="btn-subtract-hit">Undo Hit</a></li>
-  <li><a class="btn-subtract-miss">Undo Miss</a></li>
-  <li><a class="btn-subtract-glass">Undo Glass</a></li>
+  <li><a class="btn-subtract-hit">Undo {{#if rebuttalMode}}Rebuttal {{/if}}Hit</a></li>
+  <li><a class="btn-subtract-miss">Undo {{#if rebuttalMode}}Rebuttal {{/if}}Miss</a></li>
+  <li><a class="btn-subtract-glass">Undo {{#if rebuttalMode}}Rebuttal {{/if}}Glass</a></li>
 </template>

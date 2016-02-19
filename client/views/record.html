@@ -56,7 +56,7 @@
   </div>
   <div class="row">
     <div class="col s12 center">
-      <a class="waves-effect waves-light btn btn-rebuttal deep-orange darken-2">
+      <a class="waves-effect waves-light btn btn-rebuttal {{#if rebuttalMode}}{{else}}deep-orange darken-2{{/if}}">
         {{#if rebuttalMode}}
         CANCEL
         {{else}}
@@ -82,8 +82,8 @@
     <div class="col s2">
       <a class="waves-effect waves-light btn btn-tiny btn-minus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="0">-</a>
     </div>
-    <div class="col s1">
-      <p class="tiny-score">{{hits.p1}}</p>
+    <div class="col s1 padding-none">
+      <p class="tiny-score">{{#if rebuttalMode}}<span class="deep-orange-text text-darken-2">({{hits.p1r}})</span>{{else}}{{hits.p1}}{{/if}}</p>
     </div>
     <div class="col s2">
       <a class="waves-effect waves-light btn btn-tiny btn-plus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="0">+</a>
@@ -91,8 +91,8 @@
     <div class="col s2 offset-s2">
       <a class="waves-effect waves-light btn btn-tiny btn-minus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="2">-</a>
     </div>
-    <div class="col s1">
-      <p class="tiny-score">{{hits.p3}}</p>
+    <div class="col s1 padding-none">
+      <p class="tiny-score">{{#if rebuttalMode}}<span class="deep-orange-text text-darken-2">({{hits.p3r}})</span>{{else}}{{hits.p3}}{{/if}}</p>
     </div>
     <div class="col s2">
       <a class="waves-effect waves-light btn btn-tiny btn-plus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="2">+</a>
@@ -110,8 +110,8 @@
     <div class="col s2">
       <a class="waves-effect waves-light btn btn-tiny btn-minus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="1">-</a>
     </div>
-    <div class="col s1">
-      <p class="tiny-score">{{hits.p2}}</p>
+    <div class="col s1 padding-none">
+      <p class="tiny-score">{{#if rebuttalMode}}<span class="deep-orange-text text-darken-2">({{hits.p2r}})</span>{{else}}{{hits.p2}}{{/if}}</p>
     </div>
     <div class="col s2">
       <a class="waves-effect waves-light btn btn-tiny btn-plus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="1">+</a>
@@ -119,8 +119,8 @@
     <div class="col s2 offset-s2">
       <a class="waves-effect waves-light btn btn-tiny btn-minus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="3">-</a>
     </div>
-    <div class="col s1">
-      <p class="tiny-score">{{hits.p4}}</p>
+    <div class="col s1 padding-none">
+      <p class="tiny-score">{{#if rebuttalMode}}<span class="deep-orange-text text-darken-2">({{hits.p4r}})</span>{{else}}{{hits.p4}}{{/if}}</p>
     </div>
     <div class="col s2">
       <a class="waves-effect waves-light btn btn-tiny btn-plus-score {{#if rebuttalMode}}deep-orange darken-2{{/if}}" roster="3">+</a>

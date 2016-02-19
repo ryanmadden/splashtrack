@@ -21,15 +21,21 @@ Template.record.onRendered(function() {
 
 Template.record.events({
   'click .btn-glass': function() {
-    Meteor.call('recordHit', Session.get('gameId'), Meteor.userId(), 'glass', Session.get('rebuttalMode'));
+    Meteor.call('recordHit', Session.get('gameId'), Meteor.userId(), 'glass', Session.get('rebuttalMode'), function(err, msg) {
+      if(msg) { alert(msg); }
+    });
     Session.set('rebuttalMode', false);
   },
   'click .btn-hit': function() {
-    Meteor.call('recordHit', Session.get('gameId'), Meteor.userId(), 'hits', Session.get('rebuttalMode'));
+    Meteor.call('recordHit', Session.get('gameId'), Meteor.userId(), 'hits', Session.get('rebuttalMode'), function(err, msg) {
+      if(msg) { alert(msg); }
+    });
     Session.set('rebuttalMode', false);
   },
   'click .btn-miss': function() {
-    Meteor.call('recordHit', Session.get('gameId'), Meteor.userId(), 'misses', Session.get('rebuttalMode'));
+    Meteor.call('recordHit', Session.get('gameId'), Meteor.userId(), 'misses', Session.get('rebuttalMode'), function(err, msg) {
+      if(msg) { alert(msg); }
+    });
     Session.set('rebuttalMode', false);
   },
   'click .btn-close-modal': function() {
@@ -47,7 +53,9 @@ Template.record.events({
     var activeGame = Games.findOne({_id: Session.get('gameId')});
     var target = $(event.target).attr('roster');
     if (activeGame) {
-      Meteor.call('recordHit', Session.get('gameId'), activeGame.roster[target], 'hits', Session.get('rebuttalMode'));
+      Meteor.call('recordHit', Session.get('gameId'), activeGame.roster[target], 'hits', Session.get('rebuttalMode'), function(err, msg) {
+        if(msg) { alert(msg); }
+      });
       Session.set('rebuttalMode', false);
     }
     else {
@@ -58,7 +66,9 @@ Template.record.events({
     var activeGame = Games.findOne({_id: Session.get('gameId')});
     var target = $(event.target).attr('roster');
     if (activeGame) {
-      Meteor.call('subtractHit', Session.get('gameId'), activeGame.roster[target], 'hits', Session.get('rebuttalMode'));
+      Meteor.call('subtractHit', Session.get('gameId'), activeGame.roster[target], 'hits', Session.get('rebuttalMode'), function(err, msg) {
+        if(msg) { alert(msg); }
+      });
       Session.set('rebuttalMode', false);
     }
     else {
@@ -107,6 +117,10 @@ Template.record.helpers({
         p2: p2Hits, 
         p3: p3Hits,
         p4: p4Hits,
+        p1r: p1Rebuts,
+        p2r: p2Rebuts,
+        p3r: p3Rebuts,
+        p4r: p4Rebuts,
         home: p1Hits + p2Hits - p1Rebuts - p2Rebuts - p3Rebuts - p4Rebuts,
         away: p3Hits + p4Hits - p1Rebuts - p2Rebuts - p3Rebuts - p4Rebuts,
         p1Name: activeGame.rosterNames[0],
@@ -133,13 +147,19 @@ Template.record.helpers({
 
 Template.recordnav.events({
   'click .btn-subtract-glass': function() {
-    Meteor.call('subtractHit', Session.get('gameId'), Meteor.userId(), 'glass', Session.get('rebuttalMode'));
+    Meteor.call('subtractHit', Session.get('gameId'), Meteor.userId(), 'glass', Session.get('rebuttalMode'), function(err, msg) {
+      if(msg) { alert(msg); }
+    });
   },
   'click .btn-subtract-hit': function() {
-    Meteor.call('subtractHit', Session.get('gameId'), Meteor.userId(), 'hits', Session.get('rebuttalMode'));
+    Meteor.call('subtractHit', Session.get('gameId'), Meteor.userId(), 'hits', Session.get('rebuttalMode'), function(err, msg) {
+      if(msg) { alert(msg); }
+    });
   },
   'click .btn-subtract-miss': function() {
-    Meteor.call('subtractHit', Session.get('gameId'), Meteor.userId(), 'misses', Session.get('rebuttalMode'));
+    Meteor.call('subtractHit', Session.get('gameId'), Meteor.userId(), 'misses', Session.get('rebuttalMode'), function(err, msg) {
+      if(msg) { alert(msg); }
+    });
   }
 });
 

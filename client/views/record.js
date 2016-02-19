@@ -8,6 +8,10 @@ Template.record.onCreated(function() {
       Session.set('player3', currGame.roster[2]);
       Session.set('player4', currGame.roster[3]);
       Session.set('rebuttalMode', false);
+      console.log(currGame);
+      if (currGame.records[Meteor.userId()]) {
+        Meteor.call('setRobust', Session.get('gameId'), Meteor.userId(), true);
+      }
     }
     else {
       Router.go('/');

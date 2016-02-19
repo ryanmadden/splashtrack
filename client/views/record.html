@@ -5,10 +5,14 @@
         {{activeRecord.hits}}
       </h2>
       <p class="margin-top-none">
+        {{#if rebuttalMode}}
+        <span class="deep-orange-text text-darken-2">{{activeRecord.rebuthits}}</span>
+        {{else}}
         {{#if activeRecord.hitsRatio}}
         ({{activeRecord.hitsRatio}}%)
         {{else}}
         (0%)
+        {{/if}}
         {{/if}}
       </p>
     </div>
@@ -17,10 +21,14 @@
         {{activeRecord.misses}}    
       </h2>    
       <p class="margin-top-none">
+        {{#if rebuttalMode}}
+        <span class="deep-orange-text text-darken-2">{{activeRecord.rebutmisses}}</span>
+        {{else}}
         {{#if activeRecord.missesRatio}}
         ({{activeRecord.missesRatio}}%)
         {{else}}
         (0%)
+        {{/if}}
         {{/if}}
       </p>
     </div>
@@ -29,10 +37,14 @@
         {{activeRecord.glass}}
       </h2>
       <p class="margin-top-none">
+        {{#if rebuttalMode}}
+        <span class="deep-orange-text text-darken-2">{{activeRecord.rebutglass}}</span>
+        {{else}}
         {{#if activeRecord.glassRatio}}
         ({{activeRecord.glassRatio}}%)
         {{else}}
         (0%)
+        {{/if}}
         {{/if}}
       </p>
     </div>

@@ -1,11 +1,9 @@
 Template.mystats.helpers({
   games: function () {
     var games = Games.find().fetch().reverse();
-    console.log(games);
     return games;
   },
   profile: function () {
-    console.log(Meteor.users.findOne({_id: Meteor.userId()}).profile);
     return Meteor.users.findOne({_id: Meteor.userId()}).profile;
   },
   stats: function () {
@@ -69,7 +67,6 @@ Template.mystats.helpers({
       missratio: Math.round(misses/total*100),
       glassratio: Math.round(glass/total*100),
     };
-    console.log(obj);
     return obj;
   }
 });

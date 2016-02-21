@@ -15,6 +15,10 @@ Template.mystats.helpers({
     var hits = 0;
     var misses = 0;
     var glass = 0;
+    var rHits = 0;
+    var rMisses = 0;
+    var rGlass = 0;
+    var allrebuttals = 0;
     for (var i = 0; i < games.length; i++) {
       var activeGame = games[i];
       var p1Hits = activeGame.records[activeGame.roster[0]].hits;
@@ -44,28 +48,41 @@ Template.mystats.helpers({
         console.log("Score compute error");
       }
       allhits += activeGame.records[Meteor.userId()].hits;
+      allrebuttals += activeGame.records[Meteor.userId()].rebuthits;
       if (activeGame.records[Meteor.userId()].robust === true) {
         hits += activeGame.records[Meteor.userId()].hits;
         misses += activeGame.records[Meteor.userId()].misses;
         glass += activeGame.records[Meteor.userId()].glass;
+        rHits += activeGame.records[Meteor.userId()].rebuthits;
+        rMisses += activeGame.records[Meteor.userId()].rebutmisses;
+        rGlass += activeGame.records[Meteor.userId()].rebutglass;
       }
 
     }
     var total = hits + misses + glass;
+    var rTotal = rHits + rMisses + rGlass;
     var obj = {
       wins: wins,
       losses: losses,
       ties: ties,
+      games: games.length,
       winratio: Math.round(wins/games.length*100),
       lossratio: Math.round(losses/games.length*100),
       tieratio: Math.round(ties/games.length*100),
-      hpg: Math.round(allhits/games.length*100)/100,
+      cpg: Math.round(allhits/games.length*100)/100,
       hits: hits,
       misses: misses,
       glass: glass,
       hitratio: Math.round(hits/total*100),
       missratio: Math.round(misses/total*100),
       glassratio: Math.round(glass/total*100),
+      rpg: Math.round(allrebuttals/games.length*100)/100,
+      rebuthits: rHits,
+      rebutmisses: rMisses,
+      rebutglass: rGlass,
+      rebuthitratio: Math.round(rHits/rTotal*100),
+      rebutmissratio: Math.round(rMisses/rTotal*100),
+      rebutglassratio: Math.round(rGlass/rTotal*100),
     };
     return obj;
   }

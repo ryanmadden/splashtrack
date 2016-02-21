@@ -1,0 +1,40 @@
+<template name="mystats">
+  <div class="row row-padded margin-bottom-none">
+    <div class="col s12">
+      <div class="chip">
+        <img src="{{profile.picture}}" alt="Profile Picture">
+        {{profile.name}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s2 right-align">
+      <p><strong>Hits:</strong></p>
+      <p><strong>Misses:</strong></p>
+      <p><strong>Glass:</strong></p>
+    </div>
+    <div class="col s4">
+      <p>{{stats.hits}} ({{stats.hitratio}}%)</p>
+      <p>{{stats.misses}} ({{stats.missratio}}%)</p>
+      <p>{{stats.glass}} ({{stats.glassratio}}%)</p>
+    </div>
+    <div class="col s2 right-align">
+      <p><strong>Wins:</strong></p>
+      <p><strong>Losses:</strong></p>
+      <p><strong>Ties:</strong></p>
+    </div>
+    <div class="col s4">
+      <p>{{stats.wins}} ({{stats.winratio}}%)</p>
+      <p>{{stats.losses}} ({{stats.lossratio}}%)</p>
+      <p>{{stats.ties}} ({{stats.tieratio}}%)</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+<!--   {{#each games}}
+  <div class="row">
+    <div class="col s12">
+      {{>gameCard}}
+    </div>
+  </div>
+  {{/each}} -->
+</template>

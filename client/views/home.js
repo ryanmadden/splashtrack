@@ -35,6 +35,9 @@ Template.home.events({
   },
   'click .btn-gamelog': function () {
     Router.go('/gamelog');
+  },
+  'click .btn-stats': function () {
+    Router.go('/mystats');
   }
 });
 

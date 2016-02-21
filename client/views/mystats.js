@@ -1,13 +1,13 @@
 Template.mystats.helpers({
   games: function () {
-    var games = Games.find().fetch().reverse();
+    var games = Games.find({roster: Meteor.userId()}).fetch().reverse();
     return games;
   },
   profile: function () {
     return Meteor.users.findOne({_id: Meteor.userId()}).profile;
   },
   stats: function () {
-    var games = Games.find().fetch().reverse();
+    var games = Games.find({roster: Meteor.userId()}).fetch().reverse();
     var wins = 0;
     var losses = 0;
     var ties = 0;

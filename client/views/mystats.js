@@ -6,6 +6,15 @@ Template.mystats.helpers({
   profile: function () {
     return Meteor.users.findOne({_id: Meteor.userId()}).profile;
   },
+  rankname: function () {
+    var numGames = Games.find({roster: Meteor.userId()}).fetch().length;
+    if (numGames < 5) { return "(Lightweight)"; }
+    else if (numGames < 10) { return "(Amateur)"; }
+    else if (numGames < 20) { return "(Booler)"; }
+    else if (numGames < 50) { return "(Caps Fiend)"; }
+    else if (numGames < 100) { return "(Stein Lord)"; }
+    else { return "(Splash King)"; }
+  },
   stats: function () {
     var games = Games.find({roster: Meteor.userId()}).fetch().reverse();
     var wins = 0;

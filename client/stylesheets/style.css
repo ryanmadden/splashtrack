@@ -104,3 +104,11 @@ sub {
 .padding-none {
   padding: 0 !important;
 }
+
+nav a.button-collapse {
+  display: block !important;
+}
+
+.container {
+  max-width: 600px;
+}

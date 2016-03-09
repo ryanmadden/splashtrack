@@ -43,7 +43,8 @@ Template.home.events({
 
 Template.home.helpers({
   hasActiveGame: function () {
-    if (Session.get('gameId')) {
+    var activeGame = Games.findOne({active: true, roster: Meteor.userId()});
+    if (activeGame) {
       return true;
     }
     else {

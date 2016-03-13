@@ -22,7 +22,7 @@ Template.options.events({
     var rstr = [p1, p2, p3, p4];
     Games.insert({
       active: true,
-      startDate: new Date(),
+      startDate: Date.parse(new Date()),
       endDate: null,
       roster: rstr,
       rosterNames: [Session.get('player1Name'), Session.get('player2Name'), Session.get('player3Name'), Session.get('player4Name')],

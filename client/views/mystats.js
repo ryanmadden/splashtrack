@@ -1,6 +1,6 @@
 Template.mystats.helpers({
   games: function () {
-    var games = Games.find({roster: Meteor.userId()}).fetch().reverse();
+    var games = Games.find({roster: Meteor.userId()}, {sort: {startDate: -1}}).fetch();
     return games;
   },
   profile: function () {

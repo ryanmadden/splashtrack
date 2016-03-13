@@ -8,14 +8,26 @@ Template.record.onCreated(function() {
       Session.set('player3', currGame.roster[2]);
       Session.set('player4', currGame.roster[3]);
       Session.set('rebuttalMode', false);
-      console.log(currGame);
     }
     else {
       Router.go('/');
     }
   }
   if (currGame.records[Meteor.userId()]) {
-    Meteor.call('setRobust', Session.get('gameId'), Meteor.userId(), true);
+    if (Session.get('recordMode')) {
+      Games.update({_id: Session.get('gameId')}, {$set: {['profile' + Meteor.userId() + '.robust']: (Session.get('recordMode') === 'all')}});
+    }
+    else {
+      var mode = Games.findOne({_id: Session.get('gameId')}).fetch().records[Meteor.userId()].robust ? 'all' : 'hits';
+      Session.set('recordMode', mode);
+    }
+
+    if(Session.get('recordMode') === 'all') {
+      Meteor.call('setRobust', Session.get('gameId'), Meteor.userId(), true);
+    }
+    else {
+      Meteor.call('setRobust', Session.get('gameId'), Meteor.userId(), false);
+    }
   }
 });
 
@@ -146,6 +158,9 @@ Template.record.helpers({
   },
   rebuttalMode: function() {
     return Session.get('rebuttalMode');
+  },
+  recordMode: function () {
+    return Session.get('recordMode') === 'all';
   }
 });
 
@@ -164,11 +179,24 @@ Template.recordnav.events({
     Meteor.call('subtractHit', Session.get('gameId'), Meteor.userId(), 'misses', Session.get('rebuttalMode'), function(err, msg) {
       if(msg) { alert(msg); }
     });
+  },
+  'click .btn-switch-mode': function() {
+    if (Session.get('recordMode') === 'all') {
+      Session.set('recordMode', 'hits');
+      Meteor.call('setRobust', Session.get('gameId'), Meteor.userId(), false);
+    }
+    else {
+      Session.set('recordMode', 'all');
+      Meteor.call('setRobust', Session.get('gameId'), Meteor.userId(), true);
+    }
   }
 });
 
 Template.recordnav.helpers({
   rebuttalMode: function () {
     return Session.get('rebuttalMode');
+  },
+  recordMode: function () {
+    return Session.get('recordMode') === 'all';
   }
 });

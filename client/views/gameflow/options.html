@@ -1,13 +1,13 @@
 <template name="options">
-  <h4>Logging</h4>
+  <h4>Choose a Mode</h4>
   <form action="#" class="record-type-form">
     <p>
-      <input class="with-gap" name="group1" type="radio" id="score-only" recordType="hits" disabled/>
-      <label for="score-only">Score Only</label>
+      <input class="with-gap" name="group1" type="radio" id="hmg" recordType="all" checked/>
+      <label for="hmg">Stat Mode</label>
     </p>
     <p>
-      <input class="with-gap" name="group1" type="radio" id="hmg" recordType="all" checked/>
-      <label for="hmg">Score plus Hits, Misses, and Glass for me</label>
+      <input class="with-gap" name="group1" type="radio" id="score-only" recordType="hits"/>
+      <label for="score-only">Scoreboard Mode</label>
     </p>
   </form>
   <div class="row row-padded">

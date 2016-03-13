@@ -8,6 +8,7 @@ Template.options.onRendered(function(){
     console.log('You are not in the game.');
     $('.btn-next').addClass('disabled');
     $('#hmg').attr('disabled', 'disabled');
+    $('#score-only').attr('disabled', 'disabled');
     // $('#score-only').attr('checked', 'checked');
   }
 });
@@ -36,18 +37,11 @@ Template.options.events({
       },
       homeScore: 0,
       awayScore: 0,
-      recordType: rt,
       createdBy: Meteor.userId(),
     }, function(error, id) {
       Session.set('gameId', id);
-      console.log("The game ID is: " + id);
-      if (rt === 'all') {
-        Router.go('/record');
-      }
-      else {
-        Router.go('/scoreboard');
-      }
-
+      Session.set('recordMode', rt);
+      Router.go('/record');
     });
 },
 'click .btn-back': function () {

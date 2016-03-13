@@ -1,6 +1,7 @@
 Template.gameLog.helpers({
   games: function () {
     return Games.find({}, {sort: {startDate: -1}}).fetch();
+  }
 });
 
 Template.gameCard.helpers({

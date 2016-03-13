@@ -10,15 +10,6 @@ Template.home.onCreated(function () {
 });
 
 Template.home.events({
-  'click .btn-login': function () {
-    Meteor.loginWithFacebook({ requestPermissions: ['email']},
-      function (error) {
-        if (error) {
-          return console.log(error);
-        }
-        console.log("login success");
-      });
-  },
   'click .btn-new-game': function () {
     if (Session.get('gameId')) {
       var currGame = Games.findOne({_id: Session.get('gameId')});

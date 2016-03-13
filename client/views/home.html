@@ -1,5 +1,4 @@
 <template name="home">
-  {{#if currentUser }}
   <div class="row row-super-padded">
     <div class="col s12 center">
       <a class="waves-effect waves-light btn btn-new-game center-margin">{{#if hasActiveGame}}Continue Game{{else}}New Game{{/if}}</a>
@@ -18,11 +17,4 @@
   <div class="row center">
     <p>Last Update: March 9, 2016</p>
   </div>
-  {{else}}
-  <div class="row">
-    <div class="valign-wrapper login-wrapper center">
-      <a class="waves-effect waves-light btn btn-login center-margin">Sign In with Facebook</a>
-    </div>
-  </div>
-  {{/if}}
 </template>

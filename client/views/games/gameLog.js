@@ -62,6 +62,12 @@ Template.gameCard.helpers({
 
 Template.gameCard.events({
   'click .btn-delete': function () {
+    var roster = this.roster;
+    _.map(roster, function(playerId) {
+      if (playerId.indexOf('Player') === -1) {
+        Meteor.call('updateStats', playerId);
+      }
+    });
     Meteor.call('deleteGame', this._id);
   }
 });

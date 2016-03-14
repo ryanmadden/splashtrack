@@ -33,6 +33,12 @@ Template.finishModal.events({
       Games.update(gameId, {
         $set: {active: false}
       });
+      var roster = Games.findOne({_id: gameId}).roster;
+      _.map(roster, function(playerId) {
+        if (playerId.indexOf('Player') === -1) {
+          Meteor.call('updateStats', playerId);
+        }
+      });
       Session.keys = {};
       Router.go('/');
     }

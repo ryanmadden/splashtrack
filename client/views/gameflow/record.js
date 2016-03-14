@@ -18,7 +18,7 @@ Template.record.onCreated(function() {
       Games.update({_id: Session.get('gameId')}, {$set: {['profile' + Meteor.userId() + '.robust']: (Session.get('recordMode') === 'all')}});
     }
     else {
-      var mode = Games.findOne({_id: Session.get('gameId')}).fetch().records[Meteor.userId()].robust ? 'all' : 'hits';
+      var mode = Games.findOne({_id: Session.get('gameId')}).records[Meteor.userId()].robust ? 'all' : 'hits';
       Session.set('recordMode', mode);
     }
 

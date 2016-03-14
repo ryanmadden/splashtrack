@@ -39,6 +39,7 @@ Template.finishModal.events({
           Meteor.call('updateStats', playerId);
         }
       });
+      Meteor.call('updateRatings', gameId);
       Session.keys = {};
       Router.go('/');
     }

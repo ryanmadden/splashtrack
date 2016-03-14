@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab col s3"><a href="#playersAZ">A-Z</a></li>
-        <li class="tab col s3 disabled"><a href="#playersRating">Rating</a></li>
+        <li class="tab col s3"><a href="#playersRating">Rating</a></li>
         <li class="tab col s3"><a href="#playersWinPct">Win %</a></li>
         <li class="tab col s3"><a href="#playersGames">Games</a></li>
+        <li class="tab col s3"><a href="#playersAZ">A-Z</a></li>
       </ul>
     </div>
   </div>
@@ -15,6 +15,16 @@
       <img src="{{profile.picture}}" alt="" class="circle">
       <span class="title">{{profile.name}}</span>
       <p>{{profile.rank}}</p>
+    </li>
+    {{/each}}
+  </ul>
+  <ul id="playersRating" class="collection">
+    {{#each playersRating}}
+    <li class="collection-item avatar">
+      <img src="{{profile.picture}}" alt="" class="circle">
+      <span class="title">{{profile.name}}</span>
+      <p>{{profile.rank}}</p>
+      <a href="#!" class="secondary-content"><i class="material-icons">{{profile.rating}}</i></a>
     </li>
     {{/each}}
   </ul>

@@ -1,6 +1,8 @@
 <template name="players">
   <h4>Players</h4>
+  <div class="collection">
   {{#each players}}
-  <a href="/stats/{{_id}}">{{profile.name}}</a>
+  <a href="/stats/{{_id}}" class="collection-item">{{profile.name}}</a>
   {{/each}}
+  </div>
 </template>

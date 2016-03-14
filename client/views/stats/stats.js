@@ -7,6 +7,6 @@ Template.stats.helpers({
     return Meteor.users.findOne({_id: this._id}).profile;
   },
   playerData: function () {
-    return Stats.findOne({playerId: Meteor.userId()});
+    return Stats.findOne({playerId: this._id});
   }
 });

@@ -1,3 +1,7 @@
+Template.stats.onCreated(function() {
+  Meteor.call('updateStats', Router.current().params._id);
+});
+
 Template.stats.helpers({
   games: function () {
     var games = Games.find({roster: this._id}, {sort: {startDate: -1}}).fetch();

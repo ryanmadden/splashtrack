@@ -7,10 +7,10 @@ Template.players.helpers({
     return Meteor.users.find({}, {sort: {'profile.name': 1}}).fetch();
   },
   playersGames: function () {
-    return Meteor.users.find({}, {sort: {'profile.stats.games': 1}}).fetch();
+    return Meteor.users.find({}, {sort: {'profile.stats.games': -1, 'profile.name': 1}}).fetch();
   },
   playersWinPct: function() {
-    return Meteor.users.find({}, {sort: {'profile.stats.winratio': 1}}).fetch();
+    return Meteor.users.find({}, {sort: {'profile.stats.winratio': -1, 'profile.name': 1}}).fetch();
   }
 });
 

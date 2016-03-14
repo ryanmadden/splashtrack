@@ -1,8 +1,41 @@
 <template name="players">
-  <h4>Players</h4>
-  <div class="collection">
-  {{#each players}}
-  <a href="/stats/{{_id}}" class="collection-item">{{profile.name}}</a>
-  {{/each}}
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#playersAZ">A-Z</a></li>
+        <li class="tab col s3 disabled"><a href="#playersRating">Rating</a></li>
+        <li class="tab col s3"><a href="#playersWinPct">Win %</a></li>
+        <li class="tab col s3"><a href="#playersGames">Games</a></li>
+      </ul>
+    </div>
   </div>
+  <ul id="playersAZ" class="collection">
+    {{#each playersAZ}}
+    <li class="collection-item avatar">
+      <img src="{{profile.picture}}" alt="" class="circle">
+      <span class="title">{{profile.name}}</span>
+      <p>{{profile.rank}}</p>
+    </li>
+    {{/each}}
+  </ul>
+  <ul id="playersWinPct" class="collection">
+    {{#each playersWinPct}}
+    <li class="collection-item avatar">
+      <img src="{{profile.picture}}" alt="" class="circle">
+      <span class="title">{{profile.name}}</span>
+      <p>{{profile.rank}}</p>
+      <a href="#!" class="secondary-content"><i class="material-icons">{{profile.stats.winratio}}%</i></a>
+    </li>
+    {{/each}}
+  </ul>
+  <ul id="playersGames" class="collection">
+    {{#each playersGames}}
+    <li class="collection-item avatar">
+      <img src="{{profile.picture}}" alt="" class="circle">
+      <span class="title">{{profile.name}}</span>
+      <p>{{profile.rank}}</p>
+      <a href="#!" class="secondary-content"><i class="material-icons">{{profile.stats.games}}</i></a>
+    </li>
+    {{/each}}
+  </ul>
 </template>

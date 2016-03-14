@@ -112,3 +112,7 @@ nav a.button-collapse {
 .container {
   max-width: 600px;
 }
+
+.collection .collection-item.avatar {
+  min-height: initial;
+}

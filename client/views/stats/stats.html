@@ -1,67 +1,74 @@
 <template name="stats">
   <div class="row row-padded margin-bottom-none">
     <div class="col s12">
-      <div class="chip">
-        <img src="{{profile.picture}}" alt="Profile Picture">
-        {{profile.name}} ({{profile.rank}})
+      <div class="card">
+        <div class="card-content white center-align">
+          <div class="chip">
+            <img src="{{profile.picture}}" alt="Profile Picture">
+            {{profile.name}} ({{profile.rank}})
+          </div>
+          <table class="striped table-stats row-padded">
+            <tbody>
+              <tr>
+                <td>Rating</td>
+                <td>{{profile.rating}}</td>
+              </tr>
+              <tr>
+                <td>Win %</td>
+                <td>{{stats.winratio}}%</td>
+              </tr>
+              <tr>
+                <td>Wins</td>
+                <td>{{stats.wins}}</td>
+              </tr>
+              <tr>
+                <td>Losses</td>
+                <td>{{stats.losses}}</td>
+              </tr>
+              <tr>
+                <td>Ties</td>
+                <td>{{stats.ties}}</td>
+              </tr>
+              <tr>
+                <td>Games Played</td>
+                <td>{{stats.games}}</td>
+              </tr>
+              <tr>
+                <td><strong>All-Time Shooting</strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Hits</td>
+                <td>{{stats.hits}} ({{stats.hitratio}}%)</td>
+              </tr>
+              <tr>
+                <td>Misses</td>
+                <td>{{stats.misses}} ({{stats.missratio}}%)</td>
+              </tr>
+              <tr>
+                <td>Glass</td>
+                <td>{{stats.glass}} ({{stats.glassratio}}%)</td>
+              </tr>
+              <tr>
+                <td><strong>Rebuttal Shooting</strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Rebuttal Hits</td>
+                <td>{{stats.rebuthits}} ({{stats.rebuthitratio}}%)</td>
+              </tr>
+              <tr>
+                <td>Rebuttal Misses</td>
+                <td>{{stats.rebutmisses}} ({{stats.rebutmissratio}}%)</td>
+              </tr>
+              <tr>
+                <td>Rebuttal Glass</td>
+                <td>{{stats.rebutglass}} ({{stats.rebutglassratio}}%)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="row margin-bottom-none">
-    <div class="col s12 center">
-      <p class="margin-bottom-none"><u><strong>Games</strong></u></p>
-    </div>
-  </div>
-  <div class="row margin-bottom-none">
-    <div class="col s2 right-align">
-      <p><strong>Wins:</strong></p>
-      <p><strong>Losses:</strong></p>
-    </div>
-    <div class="col s4">
-      <p>{{stats.wins}} ({{stats.winratio}}%)</p>
-      <p>{{stats.losses}} ({{stats.lossratio}}%)</p>
-    </div>
-    <div class="col s2 right-align">
-      <p><strong>Ties:</strong></p>
-      <p><strong>Games:</strong></p>
-    </div>
-    <div class="col s4">
-      <p>{{stats.ties}} ({{stats.tieratio}}%)</p>
-      <p>{{stats.games}}</p>
-    </div>
-  </div>
-  <div class="row margin-bottom-none">
-    <div class="col s6 center">
-      <p class="margin-bottom-none"><u><strong>All Shooting</strong></u></p>
-    </div>
-    <div class="col s6 center">
-      <p class="margin-bottom-none"><u><strong>Rebuttals</strong></u></p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s2 right-align">
-      <p><strong>Hits:</strong></p>
-      <p><strong>Misses:</strong></p>
-      <p><strong>Glass:</strong></p>
-      <p><strong>CPG:</strong></p>
-    </div>
-    <div class="col s4">
-      <p>{{stats.hits}} ({{stats.hitratio}}%)</p>
-      <p>{{stats.misses}} ({{stats.missratio}}%)</p>
-      <p>{{stats.glass}} ({{stats.glassratio}}%)</p>
-      <p>{{stats.cpg}}</p>
-    </div>
-    <div class="col s2 right-align">
-      <p><strong>Hits:</strong></p>
-      <p><strong>Misses:</strong></p>
-      <p><strong>Glass:</strong></p>
-      <p><strong>RPG:</strong></p>
-    </div>
-    <div class="col s4">
-      <p>{{stats.rebuthits}} ({{stats.rebuthitratio}}%)</p>
-      <p>{{stats.rebutmisses}} ({{stats.rebutmissratio}}%)</p>
-      <p>{{stats.rebutglass}} ({{stats.rebutglassratio}}%)</p>
-      <p>{{stats.rpg}}</p>
     </div>
   </div>
   <div class="divider"></div>

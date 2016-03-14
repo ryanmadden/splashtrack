@@ -1,13 +1,13 @@
-Template.mystats.helpers({
+Template.stats.helpers({
   games: function () {
-    var games = Games.find({roster: Meteor.userId()}, {sort: {startDate: -1}}).fetch();
+    var games = Games.find({roster: this._id}, {sort: {startDate: -1}}).fetch();
     return games;
   },
   profile: function () {
-    return Meteor.users.findOne({_id: Meteor.userId()}).profile;
+    return Meteor.users.findOne({_id: this._id}).profile;
   },
   rankname: function () {
-    var numGames = Games.find({roster: Meteor.userId()}).fetch().length;
+    var numGames = Games.find({roster: this._id}).fetch().length;
     if (numGames < 5) { return "(Lightweight)"; }
     else if (numGames < 10) { return "(Amateur)"; }
     else if (numGames < 20) { return "(Booler)"; }
@@ -16,7 +16,7 @@ Template.mystats.helpers({
     else { return "(Splash King)"; }
   },
   stats: function () {
-    var games = Games.find({roster: Meteor.userId()}).fetch().reverse();
+    var games = Games.find({roster: this._id}, {sort: {startDate: -1}}).fetch();
     var wins = 0;
     var losses = 0;
     var ties = 0;
@@ -40,7 +40,7 @@ Template.mystats.helpers({
       var p4Rebuts = activeGame.records[activeGame.roster[3]].rebuthits;
       var home = p1Hits + p2Hits - p1Rebuts - p2Rebuts - p3Rebuts - p4Rebuts;
       var away = p3Hits + p4Hits - p1Rebuts - p2Rebuts - p3Rebuts - p4Rebuts;
-      var onHomeTeam = Meteor.userId() === activeGame.roster[0] || Meteor.userId() === activeGame.roster[1];
+      var onHomeTeam = this._id === activeGame.roster[0] || this._id === activeGame.roster[1];
       if (home > away ) {
         if (onHomeTeam) { wins++; }
         else { losses++; }
@@ -56,15 +56,15 @@ Template.mystats.helpers({
         // shouldn't happen
         console.log("Score compute error");
       }
-      allhits += activeGame.records[Meteor.userId()].hits;
-      allrebuttals += activeGame.records[Meteor.userId()].rebuthits;
-      if (activeGame.records[Meteor.userId()].robust === true) {
-        hits += activeGame.records[Meteor.userId()].hits;
-        misses += activeGame.records[Meteor.userId()].misses;
-        glass += activeGame.records[Meteor.userId()].glass;
-        rHits += activeGame.records[Meteor.userId()].rebuthits;
-        rMisses += activeGame.records[Meteor.userId()].rebutmisses;
-        rGlass += activeGame.records[Meteor.userId()].rebutglass;
+      allhits += activeGame.records[this._id].hits;
+      allrebuttals += activeGame.records[this._id].rebuthits;
+      if (activeGame.records[this._id].robust === true) {
+        hits += activeGame.records[this._id].hits;
+        misses += activeGame.records[this._id].misses;
+        glass += activeGame.records[this._id].glass;
+        rHits += activeGame.records[this._id].rebuthits;
+        rMisses += activeGame.records[this._id].rebutmisses;
+        rGlass += activeGame.records[this._id].rebutglass;
       }
 
     }

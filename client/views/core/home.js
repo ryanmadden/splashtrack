@@ -28,7 +28,10 @@ Template.home.events({
     Router.go('/gamelog');
   },
   'click .btn-stats': function () {
-    Router.go('/mystats');
+    Router.go('/stats/' + Meteor.userId());
+  },
+  'click .btn-players': function () {
+    Router.go('/players');
   }
 });
 

@@ -4,6 +4,10 @@ Template.options.onRendered(function(){
   var p3 = Session.get('player3');
   var p4 = Session.get('player4');
   var rstr = [p1, p2, p3, p4];
+  if (!(p1 != "Player 1" && p2 != "Player 2" && p3 != "Player 3" && p4 != "Player 4")) {
+    console.log("You need 4 playrs for a rated game.");
+    $('#ratedSwitch').attr('disabled', 'disabled');
+  }
   if (!_.contains(rstr, Meteor.userId())) {
     console.log('You are not in the game.');
     $('.btn-next').addClass('disabled');
@@ -25,6 +29,7 @@ Template.options.events({
       active: true,
       startDate: Date.parse(new Date()),
       endDate: null,
+      rated: $('#ratedSwitch').prop('checked'),
       roster: rstr,
       rosterNames: [Session.get('player1Name'), Session.get('player2Name'), Session.get('player3Name'), Session.get('player4Name')],
       homeNames: [Session.get('player1Name'), Session.get('player2Name')],

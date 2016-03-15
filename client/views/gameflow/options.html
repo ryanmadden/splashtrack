@@ -1,15 +1,30 @@
 <template name="options">
-  <h4>Choose a Mode</h4>
-  <form action="#" class="record-type-form">
-    <p>
-      <input class="with-gap" name="group1" type="radio" id="hmg" recordType="all" checked/>
-      <label for="hmg">Stat Mode</label>
-    </p>
-    <p>
-      <input class="with-gap" name="group1" type="radio" id="score-only" recordType="hits"/>
-      <label for="score-only">Scoreboard Mode</label>
-    </p>
-  </form>
+  <div class="row">
+    <div class="col s12">
+      <h3>Game Optons</h3>
+      <h5>Scoring Mode</h5>
+      <form action="#" class="record-type-form">
+        <p>
+          <input class="with-gap" name="group1" type="radio" id="hmg" recordType="all" checked/>
+          <label for="hmg">Stat Mode</label>
+        </p>
+        <p>
+          <input class="with-gap" name="group1" type="radio" id="score-only" recordType="hits"/>
+          <label for="score-only">Scoreboard Mode</label>
+        </p>
+      </form>
+      <h5>Rated Game</h5>
+      <p>You can't play a rated game with guests.</p>
+      <div class="switch">
+        <label>
+          Unrated
+          <input id="ratedSwitch" type="checkbox">
+          <span class="lever"></span>
+          Rated
+        </label>
+      </div>
+    </div>
+  </div>
   <div class="row row-padded">
     <div class="col s12 m6">
       <a class="waves-effect waves-light btn btn-next">NEXT</a>

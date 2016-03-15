@@ -39,7 +39,10 @@ Template.finishModal.events({
           Meteor.call('updateStats', playerId);
         }
       });
-      Meteor.call('updateRatings', gameId);
+      var rated = Games.findOne({_id: gameId}).rated;
+      if (rated) {
+        Meteor.call('updateRatings', gameId);
+      }
       Session.keys = {};
       Router.go('/');
     }

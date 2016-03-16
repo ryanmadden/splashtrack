@@ -31,7 +31,7 @@ Template.finishModal.events({
     var gameId = Session.get('gameId');
     if (gameId) {
       Games.update(gameId, {
-        $set: {active: false}
+        $set: {active: false, endDate: Date.parse(new Date())}
       });
       var roster = Games.findOne({_id: gameId}).roster;
       _.map(roster, function(playerId) {

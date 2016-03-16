@@ -1,11 +1,12 @@
 <template name="players">
-  <div class="row">
+  <div class="row row-padded">
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab col s3"><a href="#playersRating">Rating</a></li>
+        <li class="tab col s3"><a href="#playersAccuracy">Accuracy</a></li>
         <li class="tab col s3"><a href="#playersWinPct">Win %</a></li>
         <li class="tab col s3"><a href="#playersGames">Games</a></li>
         <li class="tab col s3"><a href="#playersAZ">A-Z</a></li>
+        <li class="tab col s3"><a href="#playersRating">Rating</a></li>
       </ul>
     </div>
   </div>
@@ -45,6 +46,16 @@
       <span class="title">{{profile.name}}</span>
       <p>{{profile.rank}}</p>
       <a href="#!" class="secondary-content"><i class="material-icons">{{profile.stats.games}}</i></a>
+    </li>
+    {{/each}}
+  </ul>
+  <ul id="playersAccuracy" class="collection">
+    {{#each playersGames}}
+    <li class="collection-item avatar">
+      <img src="{{profile.picture}}" alt="" class="circle">
+      <span class="title">{{profile.name}}</span>
+      <p>{{profile.rank}}</p>
+      <a href="#!" class="secondary-content"><i class="material-icons">{{profile.stats.hitratio}}%</i></a>
     </li>
     {{/each}}
   </ul>

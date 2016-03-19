@@ -14,9 +14,6 @@ Template.players.helpers({
   },
   playersWinPct: function() {
     return Meteor.users.find({}, {sort: {'profile.stats.winratio': -1, 'profile.name': 1}}).fetch();
-  },
-  playersAccuracy: function() {
-    return Meteor.users.find({}, {sort: {'profile.stats.hitratio': -1, 'profile.name': 1}}).fetch();
   }
 });
 

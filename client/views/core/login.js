@@ -4,7 +4,8 @@ Template.login.events({
       function (error) {
         if (error) {
           Materialize.toast('Login error', 4000);
-          return console.log(error);
+          console.log(error);
+          return false;
         }
       });
   }

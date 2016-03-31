@@ -9,5 +9,8 @@ Template.layout.onRendered(function() {
 Template.layout.events({
   'click .btn-home': function () {
     Router.go('/');
+  },
+  'click .btn-demo': function () {
+    Router.go('demo');
   }
 });

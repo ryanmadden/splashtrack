@@ -2,6 +2,16 @@ body {
   overflow: inherit !important;
 }
 
+.navbar-fixed {
+  height: 71px;
+}
+
+nav {
+  height: 71px;
+  padding-top: 15px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
 .login-wrapper {
   height: 85vh;
 }

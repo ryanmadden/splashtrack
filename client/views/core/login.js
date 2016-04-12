@@ -26,8 +26,16 @@ Template.register.events({
     Accounts.createUser({
       username: username,
       password: passwordVar,
+    }, function(error) {
+      if (error) {
+        Materialize.toast('Registration error', 4000);
+        console.log(error);
+        return false;
+      }
+      else {
+        Router.go('/');
+      }
     });
-    Router.go('/');
   },
 });
 
@@ -36,7 +44,15 @@ Template.logn.events({
     event.preventDefault();
     var username = event.target.loginUsername.value;
     var passwordVar = event.target.loginPassword.value;
-    Meteor.loginWithPassword(username, passwordVar);
-    Router.go('/');
+    Meteor.loginWithPassword(username, passwordVar, function(error) {
+      if (error) {
+        Materialize.toast('Username or password is incorrect', 4000);
+        console.log(error);
+        return false;
+      }
+      else {
+        Router.go('/');
+      }
+    });
   }
 });

@@ -8,5 +8,35 @@ Template.login.events({
           return false;
         }
       });
+  },
+  'click .btn-logn': function () {
+    Router.go('logn');
+  },
+  'click .btn-register': function () {
+    Router.go('register');
+  }
+});
+
+Template.register.events({
+  'submit form': function(event) {
+    event.preventDefault();
+    console.log('hi');
+    var username = event.target.registerUsername.value;
+    var passwordVar = event.target.registerPassword.value;
+    Accounts.createUser({
+      username: username,
+      password: passwordVar,
+    });
+    Router.go('/');
+  },
+});
+
+Template.logn.events({
+  'submit form': function(event){
+    event.preventDefault();
+    var username = event.target.loginUsername.value;
+    var passwordVar = event.target.loginPassword.value;
+    Meteor.loginWithPassword(username, passwordVar);
+    Router.go('/');
   }
 });

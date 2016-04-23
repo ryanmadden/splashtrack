@@ -15,7 +15,7 @@ Template.record.onCreated(function() {
   }
   if (currGame.records[Meteor.userId()]) {
     if (Session.get('recordMode')) {
-      Games.update({_id: Session.get('gameId')}, {$set: {['profile.' + Meteor.userId() + '.robust']: (Session.get('recordMode') === 'all')}});
+      Games.update({_id: Session.get('gameId')}, {$set: {['records.' + Meteor.userId() + '.robust']: (Session.get('recordMode') === 'all')}});
     }
     else {
       var mode = Games.findOne({_id: Session.get('gameId')}).records[Meteor.userId()].robust ? 'all' : 'hits';

@@ -46,7 +46,7 @@ Template.gameCard.helpers({
       awayWinner: away > home,
       p1Name: activeGame.rosterNames[0],
       p2Name: activeGame.rosterNames[1],
-      p3Name: activeGame.rosterNames[2], 
+      p3Name: activeGame.rosterNames[2],
       p4Name: activeGame.rosterNames[3]
     }
   },
@@ -69,6 +69,10 @@ Template.gameCard.events({
       }
     });
     Meteor.call('deleteGame', this._id);
+  },
+  'click .modal-delete-trigger': function() {
+    Session.set('deleteGame', this._id);
+    $('#modal2').openModal();
   }
 });
 

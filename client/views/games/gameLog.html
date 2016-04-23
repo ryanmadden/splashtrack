@@ -2,6 +2,7 @@
   {{#each games}}
   {{>gameCard}}
   {{/each}}
+  {{> deleteModal}}
 </template>
 
 <template name="gameCard">
@@ -165,7 +166,7 @@
             </li>
           </ul>
           {{#if superUser}}
-          <a class="waves-effect waves-light btn btn-delete red darken-1">Delete</a>
+          <a class="waves-effect waves-light btn red darken-1 modal-trigger modal-delete-trigger" href="#modal2">Delete</a>
           {{/if}}
         </div>
       </div>

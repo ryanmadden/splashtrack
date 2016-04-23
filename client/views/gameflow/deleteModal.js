@@ -4,7 +4,7 @@ Template.deleteModal.helpers({
 
 Template.deleteModal.events({
   'click .btn-delete': function () {
-    var gameId = Session.get('gameId');
+    var gameId = Session.get('deleteGame') || Session.get('gameId');
     if (gameId) {
       Meteor.call('deleteGame', gameId);
       Session.keys = {};

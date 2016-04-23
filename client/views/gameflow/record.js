@@ -54,9 +54,6 @@ Template.record.events({
     });
     Session.set('rebuttalMode', false);
   },
-  'click .btn-close-modal': function() {
-    $('#modal1').closeModal();
-  },
   'click .btn-rebuttal': function() {
     if (Session.get('rebuttalMode')) {
       Session.set('rebuttalMode', false);

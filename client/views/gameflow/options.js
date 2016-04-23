@@ -32,16 +32,12 @@ Template.options.events({
       rated: $('#ratedSwitch').prop('checked'),
       roster: rstr,
       rosterNames: [Session.get('player1Name'), Session.get('player2Name'), Session.get('player3Name'), Session.get('player4Name')],
-      homeNames: [Session.get('player1Name'), Session.get('player2Name')],
-      awayNames: [Session.get('player3Name'), Session.get('player4Name')],
       records: {
         [p1]: {robust: false, hits: 0, misses: 0, glass: 0, rebuthits: 0, rebutmisses: 0, rebutglass: 0},
         [p2]: {robust: false, hits: 0, misses: 0, glass: 0, rebuthits: 0, rebutmisses: 0, rebutglass: 0},
         [p3]: {robust: false, hits: 0, misses: 0, glass: 0, rebuthits: 0, rebutmisses: 0, rebutglass: 0},
         [p4]: {robust: false, hits: 0, misses: 0, glass: 0, rebuthits: 0, rebutmisses: 0, rebutglass: 0}
       },
-      homeScore: 0,
-      awayScore: 0,
       createdBy: Meteor.userId(),
     }, function(error, id) {
       Session.set('gameId', id);

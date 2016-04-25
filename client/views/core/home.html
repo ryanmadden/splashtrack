@@ -1,4 +1,11 @@
 <template name="home">
+
+  <ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header center-align">Message of the Day 🎉</div>
+      <div class="collapsible-body"><p>The rating system has been upgraded to more fairly reward high performing players. Rating changes after a game are calculated based on your performance relative to other players in the game and their respective skill levels. Increasing your rating is simple: hit more caps than anyone else in your game.</p><p>You may notice your ranking has changed suddenly. After the system upgrade all ratings were reset to 800. Each rated game was then retroactively evaluated to create the current rankings.</p></div>
+    </li>
+  </ul>
   <div class="row row-super-padded">
     <div class="col s12 center">
       <a class="waves-effect waves-light btn btn-new-game center-margin">{{#if hasActiveGame}}Continue Game{{else}}New Game{{/if}}</a>

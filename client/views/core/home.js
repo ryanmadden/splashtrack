@@ -9,6 +9,10 @@ Template.home.onCreated(function () {
   }
 });
 
+Template.home.onRendered(function () {
+ $('.collapsible').collapsible();
+});
+
 Template.home.events({
   'click .btn-new-game': function () {
     if (Session.get('gameId')) {

@@ -29,7 +29,8 @@ Template.finishModal.helpers({
 Template.finishModal.events({
   'click .btn-finish': function () {
     var gameId = Session.get('gameId');
-    if (gameId) {
+    var active = Games.findOne(gameId).active;
+    if (gameId && active) {
       Games.update(gameId, {
         $set: {active: false, endDate: Date.parse(new Date())}
       });
@@ -47,7 +48,7 @@ Template.finishModal.events({
       Router.go('/');
     }
     else {
-      alert("There was a problem saving your game. Ryan probably broke something... idiot.")
+      Router.go('/');
     }
   }
 });

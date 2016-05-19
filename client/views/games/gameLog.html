@@ -1,8 +1,12 @@
 <template name="gameLog">
+  {{#if Template.subscriptionsReady }}
   {{#each games}}
   {{>gameCard}}
   {{/each}}
   {{> deleteModal}}
+  {{else}}
+  {{> loading}}
+  {{/if}}
 </template>
 
 <template name="gameCard">

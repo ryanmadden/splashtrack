@@ -2,7 +2,7 @@ Template.gameLog.onCreated(function() {
   const handle = Meteor.subscribeWithPagination('games', 10);
 
   $(window).scroll(function() {
-    if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+    if(($(window).scrollTop() + $(window).height() > $(document).height() - 10) && handle.ready()) {
       handle.loadNextPage();
     }
   });

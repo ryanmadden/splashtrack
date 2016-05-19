@@ -1,5 +1,14 @@
 Template.stats.onCreated(function() {
-  Meteor.call('updateStats', Router.current().params._id);
+  var userId = Router.current().params._id;
+  Meteor.call('updateStats', userId);
+
+  const handle = Meteor.subscribeWithPagination('games', userId, 10);
+
+  $(window).scroll(function() {
+    if(($(window).scrollTop() + $(window).height() > $(document).height() - 10) && handle.ready()) {
+      handle.loadNextPage();
+    }
+  });
 });
 
 Template.stats.helpers({
@@ -13,4 +22,8 @@ Template.stats.helpers({
   stats: function () {
     return Meteor.users.findOne({_id: this._id}).profile.stats;
   }
+});
+
+Template.gameLog.onCreated(function() {
+
 });

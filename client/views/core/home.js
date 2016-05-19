@@ -15,19 +15,11 @@ Template.home.onRendered(function () {
 });
 
 Template.home.events({
+  'click .btn-continue-game': function () {
+    Router.go('/record');
+  },
   'click .btn-new-game': function () {
-    if (Session.get('gameId')) {
-      var currGame = Games.findOne({_id: Session.get('gameId')});
-      if (currGame.recordType === "hits") {
-        Router.go('/scoreboard');
-      }
-      else {
-        Router.go('/record');
-      }
-    }
-    else {
-      Router.go('/new');
-    }
+    Router.go('/new');
   },
   'click .btn-gamelog': function () {
     Router.go('/gamelog');
@@ -44,9 +36,11 @@ Template.home.helpers({
   hasActiveGame: function () {
     var activeGame = Games.findOne({active: true, roster: Meteor.userId()});
     if (activeGame) {
+      // Session.set('gameId', activeGame._id);
       return true;
     }
     else {
+      // Session.set('gameId', null);
       return false;
     }
   }

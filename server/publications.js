@@ -1,5 +1,10 @@
-Meteor.publish('games', function(limit) {
-  return Games.find({}, {limit: limit});
+Meteor.publish('games', function(userId, limit) {
+  if (userId === 'all') {
+    return Games.find({}, {limit: limit, sort: {startDate: -1}});
+  }
+  else {
+    return Games.find({roster: userId}, {limit: limit, sort: {startDate: -1}});
+  }
 });
 
 Meteor.publish('users', function() {

@@ -1,5 +1,5 @@
 Template.players.onCreated(function() {
-  Meteor.subscribe('users');
+
 });
 
 Template.players.onRendered(function() {

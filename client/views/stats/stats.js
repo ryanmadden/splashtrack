@@ -1,5 +1,7 @@
 Template.stats.onCreated(function() {
   var userId = Router.current().params._id;
+  this.subscribe('oneUser', userId);
+
   Meteor.call('updateStats', userId);
 
   const handle = Meteor.subscribeWithPagination('games', userId, 10);

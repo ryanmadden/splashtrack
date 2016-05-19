@@ -7,6 +7,15 @@ Meteor.publish('games', function(userId, limit) {
   }
 });
 
-Meteor.publish('users', function() {
+Meteor.publish('activeUser', function() {
+  return Meteor.users.find({_id: this.userId});
+});
+
+Meteor.publish('allUsers', function() {
   return Meteor.users.find({});
+});
+
+Meteor.publish('oneUser', function(userId) {
+  console.log(userId);
+  return Meteor.users.find({_id: userId})
 });

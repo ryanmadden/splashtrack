@@ -1,4 +1,5 @@
 Template.home.onCreated(function () {
+  const handle = Meteor.subscribeWithPagination('games', Meteor.userId(), 10);
   var currGame = Games.findOne({active: true, roster: Meteor.userId()});
   if (currGame) { 
     Session.set('gameId', currGame._id);

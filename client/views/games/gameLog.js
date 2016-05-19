@@ -1,3 +1,14 @@
+Template.gameLog.onCreated(function() {
+  const handle = Meteor.subscribeWithPagination('games', 10);
+
+  $(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+      handle.loadNextPage();
+    }
+  });
+});
+
+
 Template.gameLog.helpers({
   games: function () {
     return Games.find({}, {sort: {startDate: -1}}).fetch();

@@ -1,3 +1,7 @@
+Template.players.onCreated(function() {
+  Meteor.subscribe('users');
+});
+
 Template.players.onRendered(function() {
   $('ul.tabs').tabs();
 });

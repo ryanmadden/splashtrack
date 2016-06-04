@@ -7,6 +7,10 @@ Meteor.publish('games', function(userId, limit) {
   }
 });
 
+Meteor.publish('oneGame', function(gameId) {
+  return Games.find({_id: gameId});
+});
+
 Meteor.publish('activeUser', function() {
   return Meteor.users.find({_id: this.userId});
 });

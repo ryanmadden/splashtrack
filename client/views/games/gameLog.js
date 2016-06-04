@@ -81,9 +81,8 @@ Template.gameCard.events({
     });
     Meteor.call('deleteGame', this._id);
   },
-  'click .modal-delete-trigger': function() {
-    Session.set('deleteGame', this._id);
-    $('#modal2').openModal();
+  'click .btn-edit': function() {
+    Router.go('/edit/' + this._id);
   }
 });
 
@@ -91,6 +90,4 @@ Template.gameCard.onRendered(function() {
   $('.collapsible').collapsible({
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
-
-  $('.modal-trigger').leanModal();
-})
+});

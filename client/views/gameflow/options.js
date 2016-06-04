@@ -4,10 +4,6 @@ Template.options.onRendered(function(){
   var p3 = Session.get('player3');
   var p4 = Session.get('player4');
   var rstr = [p1, p2, p3, p4];
-  if (!(p1 != "Player 1" && p2 != "Player 2" && p3 != "Player 3" && p4 != "Player 4")) {
-    console.log("You need 4 playrs for a rated game.");
-    $('#ratedSwitch').attr('disabled', 'disabled');
-  }
   if (!_.contains(rstr, Meteor.userId())) {
     console.log('You are not in the game.');
     $('.btn-next').addClass('disabled');
@@ -44,8 +40,24 @@ Template.options.events({
       Session.set('recordMode', rt);
       Router.go('/record');
     });
-},
-'click .btn-back': function () {
-  Router.go('/new');
-}
+  },
+  'click .btn-back': function () {
+    Router.go('/new');
+  }
+});
+
+Template.options.helpers({
+  canPlayRated: function () {
+    var p1 = Session.get('player1');
+    var p2 = Session.get('player2');
+    var p3 = Session.get('player3');
+    var p4 = Session.get('player4');
+    if (!(p1 != "Player 1" && p2 != "Player 2" && p3 != "Player 3" && p4 != "Player 4")) {
+      console.log("You need 4 playrs for a rated game.");
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
 });

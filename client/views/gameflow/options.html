@@ -14,11 +14,14 @@
         </p>
       </form>
       <h5>Rated Game</h5>
+      {{#if canPlayRated}}
+      {{else}}
       <p>You can't play a rated game with guests.</p>
+      {{/if}}
       <div class="switch">
         <label>
           Unrated
-          <input id="ratedSwitch" type="checkbox">
+          <input id="ratedSwitch" type="checkbox" disabled="{{#if canPlayRated}}{{else}}disabled{{/if}}">
           <span class="lever"></span>
           Rated
         </label>

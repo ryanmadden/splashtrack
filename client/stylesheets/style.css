@@ -139,3 +139,7 @@ form {
   max-width: 250px;
   margin: 0 auto;
 }
+
+.team-score {
+  margin-top: 24px;
+}

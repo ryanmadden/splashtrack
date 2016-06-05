@@ -68,6 +68,25 @@ Template.gameCard.helpers({
     else {
       return false;
     }
+  },
+  date: function() {
+    var date = new Date(this.startDate);
+    return date.toLocaleDateString("en-US");
+  },
+  elapsed: function() {
+    if (this.startDate && this.endDate) {
+      var diff = Math.abs(new Date(this.endDate) - new Date(this.startDate));
+      return Math.floor((diff/1000)/60);
+    }
+    else {
+      return false;
+    }
+  },
+  isActive: function() {
+    return this.active;
+  },
+  isRated: function() {
+    return this.rated;
   }
 });
 

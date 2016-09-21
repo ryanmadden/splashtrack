@@ -71,7 +71,7 @@ Template.gameCard.helpers({
   },
   date: function() {
     var date = new Date(this.startDate);
-    return date.toLocaleDateString("en-US");
+    return dateFormatter(date);
   },
   elapsed: function() {
     if (this.startDate && this.endDate) {
@@ -89,6 +89,13 @@ Template.gameCard.helpers({
     return this.rated;
   }
 });
+
+function dateFormatter(date){
+    if(Date.parse('2/6/2009')=== 1233896400000){
+        return [date.getMonth()+1, date.getDate(), date.getFullYear()].join('/');
+    }
+    return [date.getDate(), date.getMonth()+1, date.getFullYear()].join('/');
+};
 
 Template.gameCard.events({
   'click .btn-delete': function () {

@@ -7,6 +7,13 @@ Meteor.publish('games', function(userId, limit) {
   }
 });
 
+Meteor.publish('weekGames', function() {
+  var oneWeekAgo = new Date();
+  oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+  oneWeekAgo = Date.parse(oneWeekAgo);
+  return Games.find({startDate: {$gt: oneWeekAgo}});
+});
+
 Meteor.publish('oneGame', function(gameId) {
   return Games.find({_id: gameId});
 });

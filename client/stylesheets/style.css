@@ -156,3 +156,12 @@ form {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   margin-right: 8px;
 }
+
+.potw {
+  width: 20px;
+  height: 20px;
+}
+
+.collection .collection-item.avatar {
+  padding-left: initial;
+}

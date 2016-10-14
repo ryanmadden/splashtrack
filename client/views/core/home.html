@@ -1,36 +1,36 @@
 <template name="home">
-  <ul class="collection center-align">
-    <li class="collection-item avatar">
-      <span class="title">{{playerOfTheWeek.name}}</span>
-      <p>Player of the Week
-     </p>
-   </li>
- </ul>
- <div class="row row-super-padded">
-  <div class="col s12 center">
-    {{#if hasActiveGame}}
-    <a class="waves-effect waves-light btn btn-continue-game center-margin">Continue Game</a>
-    {{else}}
-    <a class="waves-effect waves-light btn btn-new-game center-margin">New Game</a>
-    {{/if}}
+
+<!--   <ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header center-align">Message of the Day 🍻</div>
+      <div class="collapsible-body"><p>A new performance upgrade means the game log loads about 10x faster. Text Ryan if you find any bugs. Party on, dudes.</p></div>
+    </li>
+  </ul> -->
+  <div class="row row-super-padded">
+    <div class="col s12 center">
+      {{#if hasActiveGame}}
+       <a class="waves-effect waves-light btn btn-continue-game center-margin">Continue Game</a>
+       {{else}}
+      <a class="waves-effect waves-light btn btn-new-game center-margin">New Game</a>
+      {{/if}}
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col s12 center">
-    <a class="waves-effect waves-light btn btn-gamelog center-margin">Game Log</a>
+  <div class="row">
+    <div class="col s12 center">
+      <a class="waves-effect waves-light btn btn-gamelog center-margin">Game Log</a>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col s12 center">
-    <a class="waves-effect waves-light btn btn-stats center-margin">My Stats</a>
+  <div class="row">
+    <div class="col s12 center">
+      <a class="waves-effect waves-light btn btn-stats center-margin">My Stats</a>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col s12 center">
-    <a class="waves-effect waves-light btn btn-players center-margin">Players</a>
+  <div class="row">
+    <div class="col s12 center">
+      <a class="waves-effect waves-light btn btn-players center-margin">Players</a>
+    </div>
   </div>
-</div>
-<div class="row center">
-  <p>Last Update: September 20, 2016</p>
-</div>
+  <div class="row center">
+    <p>Last Update: September 20, 2016</p>
+  </div>
 </template>

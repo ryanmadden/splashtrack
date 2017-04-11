@@ -1,0 +1,23 @@
+{
+  "name": "splashtrack",
+  "version": "1.0.0",
+  "description": "Bing Bang Bong Boom",
+  "main": "mobile-config.js",
+  "dependencies": {
+    "babel-runtime": "^6.23.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanmadden/splashtrack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanmadden/splashtrack/issues"
+  },
+  "homepage": "https://github.com/ryanmadden/splashtrack"
+}

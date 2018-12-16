@@ -4,6 +4,7 @@
   "description": "Bing Bang Bong Boom",
   "main": "mobile-config.js",
   "dependencies": {
+    "@babel/runtime": "^7.2.0",
     "babel-runtime": "^6.23.0"
   },
   "devDependencies": {},

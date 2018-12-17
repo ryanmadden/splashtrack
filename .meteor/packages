@@ -25,7 +25,6 @@ underscore@1.0.10
 standard-minifier-css@1.5.2
 standard-minifier-js@2.4.0
 accounts-password@1.5.1
-percolate:paginated-subscription
 shell-server@0.4.0
 facebook-config-ui@1.0.2
 force-ssl@1.1.0
